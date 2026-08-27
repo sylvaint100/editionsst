@@ -140,9 +140,15 @@ la police du lettrage n'est pas identifiée avec certitude.
   vous. »), publiquement visible et rattachée à la fiche Kindle comme format broché. Ne
   jamais y faire pointer le site.
 - Les ISBN et formats de *L'IA en Action* / *AI in Action* restent marqués `.a-completer`.
-- L'ISBN broché français `978-2-925678-00-7` vient de la page existante et n'a pas été
-  recoupé : la page de droits du Drive porte encore `[ISBN]` en placeholder. Le numérique
-  `978-2-925678-01-4` est confirmé par la fiche Amazon.
+- **Où trouver les ISBN.** Les fichiers `page-de-droits-*.md` du Drive ne sont pas fiables
+  côté français : ils portent encore `[ISBN]` en placeholder. La source de vérité est la
+  **page de droits dans l'epub livré** (`Manuscrit/*.epub`, page « Droits d'auteur »).
+  C'est de là que viennent les trois numéros français, tous recoupés :
+  broché `978-2-925678-00-7`, relié `978-2-925678-06-9`, ePub `978-2-925678-01-4`.
+  Les trois anglais viennent de `page-de-droits-en.md`, qui lui est rempli.
+- **Ne jamais extrapoler un ISBN d'une suite.** Le relié français est `-06-9`, pas
+  `-02-x` : la numérotation n'est pas séquentielle par ouvrage, et le dernier chiffre est
+  une clé de contrôle. Les six numéros affichés ont été validés par leur clé.
 - `og-editions-st.png` et `og-st-publishing.png` sont des compositions faites faute de source ;
   elles ne portent aucun texte.
 - `logo-editions-st-blanc.png` provient d'un logo à encre **noire** inversée en blanc : la

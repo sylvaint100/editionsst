@@ -8,9 +8,12 @@
   --papier-pur:#FFFFFF;
   --gris:#59616E;
   --mesure:68rem;
-  /* Hauteur des logos du bandeau. Les deux marques sont recadrées au contenu
-     (aucune marge dans le PNG), donc c'est la hauteur réellement visible. */
+  /* Hauteur de référence des logos du bandeau. Les deux marques sont recadrées au
+     contenu (aucune marge dans le PNG), donc c'est la hauteur réellement visible. */
   --hauteur-logo:4.5rem;
+  /* Correction optique, voir CLAUDE.md : à hauteur totale égale l'emblème français
+     paraît plus petit, son nom tenant sur deux lignes contre une en anglais. */
+  --echelle-logo:1;
 }
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
@@ -52,7 +55,12 @@ a{color:inherit}
   gap:1.5rem;min-height:calc(var(--hauteur-logo) + 1.5rem);
 }
 .marque{display:flex;align-items:center;gap:.75rem;text-decoration:none}
-.marque img{height:var(--hauteur-logo);width:auto}
+.marque img{height:calc(var(--hauteur-logo) * var(--echelle-logo));width:auto}
+/* Le dessin livre+ST occupe 70,8 % de la hauteur du fichier français contre 75,9 %
+   du fichier anglais : sans ce facteur, le livre français sort 7,2 % plus court.
+   Seule l'image grandit — le min-height du bandeau reste calé sur --hauteur-logo,
+   donc les deux pages gardent un bandeau de même hauteur. */
+:root:lang(fr){--echelle-logo:1.072}
 .marque .nom{font-weight:600;letter-spacing:.02em;font-size:1.0625rem}
 .menu{display:flex;gap:1.75rem;align-items:center}
 .menu a{

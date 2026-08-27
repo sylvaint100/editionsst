@@ -72,9 +72,9 @@ une colonne). Les préférences `prefers-reduced-motion` sont respectées.
 
 Les deux marques du bandeau sont **le même emblème** : monogramme ST sur livre ouvert,
 nom de la maison dessous entre deux filets or, signature en dessous. Seuls le nom et la
-signature changent d'une langue à l'autre. Proportions 1,44:1 en français, 1,61:1 en
-anglais — soit 104 × 72 px et 116 × 72 px à l'affichage. Le pied de page porte déjà le
-même emblème en blanc des deux côtés.
+signature changent d'une langue à l'autre. À l'affichage : 112 × 77 px en français,
+116 × 72 px en anglais. Le pied de page porte déjà le même emblème en blanc des deux
+côtés.
 
 Les deux fichiers sont **recadrés au contenu** — aucune marge transparente dans le PNG —
 pour que `--hauteur-logo` soit la hauteur *réellement visible*. C'est le piège d'origine :
@@ -82,8 +82,22 @@ les fichiers livrés portaient des marges dans la toile, si bien que `height` s'
 au fichier et non au dessin, et que les deux marques ne pesaient pas pareil. Tout logo qui
 remplace ceux-là doit être recadré de la même façon.
 
-`--hauteur-logo` (4.5rem) pilote à la fois la hauteur de l'image et le `min-height` du
-bandeau : la régler suffit, il n'y a rien d'autre à ajuster.
+`--hauteur-logo` (4.5rem) est la hauteur de référence : elle pilote le `min-height` du
+bandeau, qui vaut donc 96 px sur les deux pages. La régler suffit à tout redimensionner.
+
+#### Pourquoi le français est tiré à 1,072
+
+Le dessin lui-même — livre ouvert et monogramme — occupe **70,8 % de la hauteur du
+fichier français contre 75,9 % du fichier anglais**, parce que le français empile
+« ÉDITIONS » et « ST » sur deux lignes là où l'anglais tient « ST PUBLISHING » sur une
+seule. À hauteur totale identique, le livre français sortait donc 7,2 % plus court, ce qui
+se voit à l'œil. D'où `--echelle-logo`, à `1` par défaut et à `1.072` sous
+`:root:lang(fr)` : les deux livres font alors 55 px de haut.
+
+Seule l'image est mise à l'échelle — le `min-height` du bandeau reste calé sur
+`--hauteur-logo`, pour que les deux pages gardent un bandeau de même hauteur. **Ne pas
+« corriger » ce facteur en le ramenant à 1** : le déséquilibre reviendrait. Il est à
+recalculer si l'un des deux fichiers de logo est remplacé.
 
 ### Où vivent les sources de logo
 

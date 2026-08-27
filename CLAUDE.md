@@ -129,14 +129,30 @@ la police du lettrage n'est pas identifiée avec certitude.
 
 ## État incomplet du site
 
-- **Les liens d'achat Lulu et Amazon sont encore `href="#"`** sur les deux pages. Aucune URL
-  n'a jamais été fournie ; ne pas en inventer.
-- Les ISBN et formats marqués `.a-completer` restent à remplir.
+- **Cinq liens d'achat sont encore `href="#"`** : Lulu pour les trois ouvrages, plus Amazon
+  pour *L'IA en Action* / *AI in Action*. Ne pas inventer d'URL. Les seuls liens réels sont
+  les deux préventes Kindle, vérifiées sur Amazon.ca le 27 août 2026 :
+  `B0HFWV11BX` (*L'écart, c'est vous.*, Éditions ST, 30 août 2026) et `B0HGN9P6RV`
+  (*The Gap Is You.*, ST Publishing, 6 septembre 2026).
+- Un ISBN par format dans la fiche, le format en retrait via `.mention-format`. Le numéro
+  garde le poids typographique, le mot « broché » / « ePub » s'efface en gris.
+- **Attention** : `B0HFCBM9B6` sur Amazon.ca est une **épreuve** (« ÉPREUVE : L'écart, c'est
+  vous. »), publiquement visible et rattachée à la fiche Kindle comme format broché. Ne
+  jamais y faire pointer le site.
+- Les ISBN et formats de *L'IA en Action* / *AI in Action* restent marqués `.a-completer`.
+- L'ISBN broché français `978-2-925678-00-7` vient de la page existante et n'a pas été
+  recoupé : la page de droits du Drive porte encore `[ISBN]` en placeholder. Le numérique
+  `978-2-925678-01-4` est confirmé par la fiche Amazon.
 - `og-editions-st.png` et `og-st-publishing.png` sont des compositions faites faute de source ;
   elles ne portent aucun texte.
 - `logo-editions-st-blanc.png` provient d'un logo à encre **noire** inversée en blanc : la
   charte ne fournit pas de version blanche côté français. Côté anglais,
   `01_st_publishing_white_transparent.png` est déjà en blanc pur, sans inversion.
-- *The Gap Is You.* est au catalogue anglais en « Translation in progress » : la traduction
-  était à peine commencée (3 sections sur 16 chapitres au 19 août 2026). Ne pas la présenter
-  comme disponible tant que ce n'est pas confirmé.
+- *The Gap Is You.* : **la traduction est terminée** (seize chapitres, cinq annexes,
+  ~56 600 mots, 26 août 2026), les couvertures sont produites et les trois ISBN sont
+  attribués — broché `978-2-925678-12-0`, relié `978-2-925678-13-7`, ePub
+  `978-2-925678-14-4`. La fiche porte donc l'ISBN broché, le format et la couverture.
+  **Mais la parution n'est pas datée** : la page de droits porte encore un
+  `[[TO CONFIRM]]` sur l'année, et aucun lien d'achat n'existe. L'ouvrage reste donc
+  « Forthcoming ». Ne pas le basculer en disponible sans confirmation et sans URL d'achat.
+  Source : `Amazon KDP/Oeuvres de non-fiction/2. The Gap Is You./` sur le Drive.

@@ -175,6 +175,8 @@ h2{
 }
 .fiche dd{margin:0;color:var(--encre);font-weight:500}
 .fiche .a-completer{color:#9AA1AC;font-weight:400}
+/* Un ISBN par format : le numéro garde le poids de la fiche, le format s'efface. */
+.fiche .mention-format{color:var(--gris);font-weight:400}
 
 .achats{display:flex;flex-wrap:wrap;gap:.75rem;align-items:center}
 .achat{

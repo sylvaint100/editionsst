@@ -43,13 +43,17 @@ editionsst.ca et stpublishing.ca : redirection d'URL vers https://editionsst.com
 | couverture-lecart-cest-vous.jpg  | 700 × 1073  | couverture de l'epub français                             |
 | couverture-lia-en-action.jpg     | 800 × 1236  | IA_en_action_front_cover.jpg                              |
 | couverture-ai-in-action.jpg      | 800 × 1273  | couverture de l'epub anglais                              |
+| couverture-the-gap-is-you.jpg    | 800 × 1243  | Amazon KDP/…/2. The Gap Is You./Couverture/The Gap Is You. - front cover.jpg |
 | og-editions-st.png               | 1200 × 630  | composée (logo blanc + filet or sur marine)               |
 | og-st-publishing.png             | 1200 × 630  | composée (idem, marque anglaise)                          |
 
 ## À compléter
 
-- **Liens Lulu et Amazon** (`href="#"` dans les blocs `.achats`) : quatre liens côté français
-  (deux ouvrages), deux côté anglais. Aucune URL n'a été fournie à ce jour.
+- **Liens Lulu et Amazon** : cinq liens sont encore `href="#"` — Lulu pour les trois
+  ouvrages, plus Amazon pour *L'IA en Action* / *AI in Action*. Les deux préventes Kindle
+  sont câblées et vérifiées.
 - ISBN et format de *L'IA en Action* / *AI in Action* (`class="a-completer"`).
-- *The Gap Is You.* est annoncé « Translation in progress ». À basculer en ouvrage disponible
-  quand la traduction sera publiée : couverture, ISBN, format, liens d'achat.
+- *The Gap Is You.* : traduction terminée, couverture et ISBN en place, mais **parution non
+  datée et sans liens d'achat** — l'ouvrage reste « Forthcoming ». Ne restent à obtenir que
+  la date de parution et les URL Lulu/Amazon. Les deux autres ISBN existent si on veut les
+  afficher : relié `978-2-925678-13-7`, ePub `978-2-925678-14-4`.

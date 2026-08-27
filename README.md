@@ -49,9 +49,11 @@ editionsst.ca et stpublishing.ca : redirection d'URL vers https://editionsst.com
 
 ## À compléter
 
-- **Liens Lulu et Amazon** : cinq liens sont encore `href="#"` — Lulu pour les trois
-  ouvrages, plus Amazon pour *L'IA en Action* / *AI in Action*. Les deux préventes Kindle
-  sont câblées et vérifiées.
+- **Liens Lulu** : trois liens encore `href="#"`, un par ouvrage. Aucune URL Lulu fournie.
+  Les quatre liens Amazon sont câblés et vérifiés.
+- **ISBN de *L'IA en Action* / *AI in Action*** : en attente de la republication sous les
+  ISBN Éditions ST. À ce moment-là, ISBN, format et lien Amazon se remplissent ensemble —
+  la republication crée de nouvelles fiches, donc de nouveaux ASIN.
 - ISBN et format de *L'IA en Action* / *AI in Action* (`class="a-completer"`).
 - *The Gap Is You.* : traduction terminée, couverture et ISBN en place, mais **parution non
   datée et sans liens d'achat** — l'ouvrage reste « Forthcoming ». Ne restent à obtenir que

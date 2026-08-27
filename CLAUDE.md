@@ -129,11 +129,23 @@ la police du lettrage n'est pas identifiée avec certitude.
 
 ## État incomplet du site
 
-- **Cinq liens d'achat sont encore `href="#"`** : Lulu pour les trois ouvrages, plus Amazon
-  pour *L'IA en Action* / *AI in Action*. Ne pas inventer d'URL. Les seuls liens réels sont
-  les deux préventes Kindle, vérifiées sur Amazon.ca le 27 août 2026 :
-  `B0HFWV11BX` (*L'écart, c'est vous.*, Éditions ST, 30 août 2026) et `B0HGN9P6RV`
-  (*The Gap Is You.*, ST Publishing, 6 septembre 2026).
+- **Trois liens d'achat sont encore `href="#"`** : Lulu, pour les trois ouvrages. Aucune URL
+  Lulu n'a jamais été fournie ; ne pas en inventer.
+- Les quatre liens Amazon en place, tous vérifiés sur la fiche produit le 27 août 2026 :
+
+  | Ouvrage | ASIN | Note |
+  |---------|------|------|
+  | *L'écart, c'est vous.* | `B0HFWV11BX` | prévente Kindle, Éditions ST, 30 août 2026 |
+  | *The Gap Is You.* | `B0HGN9P6RV` | prévente Kindle, ST Publishing, 6 septembre 2026 |
+  | *L'IA en Action* | `B0FLF2NHRM` | Kindle, paru le 5 août 2025 |
+  | *AI in Action* | `B0FLF4T1T8` | broché, paru le 6 août 2025 |
+
+- **Les deux liens de 2025 sont provisoires.** *L'IA en Action* / *AI in Action* sont
+  actuellement publiés sous des ISBN gratuits attribués par Amazon — la fiche anglaise porte
+  « Independently published » et l'ISBN `979-8296763815`, dont le préfixe 979-8 est la
+  signature d'un numéro KDP. L'éditeur prévoit de les republier sous les ISBN Éditions ST,
+  ce qui créera de **nouvelles fiches et donc de nouveaux ASIN**. Revérifier ces deux liens
+  après la republication.
 - Un ISBN par format dans la fiche, le format en retrait via `.mention-format`. Le numéro
   garde le poids typographique, le mot « broché » / « ePub » s'efface en gris.
 - **Attention** : `B0HFCBM9B6` sur Amazon.ca est une **épreuve** (« ÉPREUVE : L'écart, c'est
@@ -159,6 +171,10 @@ blocage anti-robot). KDP réserve l'ASIN mais ne publie la page qu'au jour de la
 même fiche produit : le lien Kindle déjà en place donnera accès au broché et au relié dès
 leur publication. Un seul lien Amazon par ouvrage suffit.
 - Les ISBN et formats de *L'IA en Action* / *AI in Action* restent marqués `.a-completer`.
+  **Décision de l'éditeur, 27 août 2026 : on attend la republication** plutôt que d'afficher
+  les ISBN Éditions ST tout de suite. Les afficher pendant qu'Amazon vend encore sous ses
+  propres numéros ferait annoncer au site un ISBN que le libraire ne trouve pas. À la
+  republication, remplir ISBN, format et lien Amazon en une seule fois.
 - **Où trouver les ISBN.** Les fichiers `page-de-droits-*.md` du Drive ne sont pas fiables
   côté français : ils portent encore `[ISBN]` en placeholder. La source de vérité est la
   **page de droits dans l'epub livré** (`Manuscrit/*.epub`, page « Droits d'auteur »).

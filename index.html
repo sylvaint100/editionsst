@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="fr-CA">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Éditions ST — Des idées qui prennent vie</title>
+<meta name="description" content="Maison d'édition québécoise. Ouvrages d'affaires, jeunesse et jeux. Éditeur de Sylvain Tremblay.">
+<link rel="canonical" href="https://editionsst.com/">
+<meta property="og:title" content="Éditions ST — Des idées qui prennent vie">
+<meta property="og:description" content="Maison d'édition québécoise. Ouvrages d'affaires, jeunesse et jeux.">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="fr_CA">
+<meta property="og:url" content="https://editionsst.com/">
+<meta property="og:image" content="https://editionsst.com/assets/og-editions-st.png">
+<link rel="icon" href="assets/icone-st.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,200;0,300;0,400;0,600;0,700;1,300;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --encre:#0E1E3C;
+  --encre-profond:#08142A;
+  --encre-voile:rgba(14,30,60,.10);
+  --or:#B8912B;
+  --or-clair:#E0BE63;
+  --papier:#F6F5F1;
+  --papier-pur:#FFFFFF;
+  --gris:#59616E;
+  --mesure:68rem;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{animation:none!important;transition:none!important}}
+body{
+  margin:0;
+  background:var(--papier);
+  color:var(--encre);
+  font-family:"Spectral",Georgia,serif;
+  font-weight:300;
+  font-size:1.0625rem;
+  line-height:1.7;
+  -webkit-font-smoothing:antialiased;
+}
+img{max-width:100%;display:block}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--or);outline-offset:3px}
+
+.enveloppe{width:100%;max-width:var(--mesure);margin:0 auto;padding:0 1.5rem}
+
+/* ---- Étiquette monospace : la trame bibliographique de la maison ---- */
+.etiquette{
+  font-family:"IBM Plex Mono",ui-monospace,monospace;
+  font-size:.6875rem;
+  letter-spacing:.16em;
+  text-transform:uppercase;
+  font-weight:500;
+}
+
+/* ---- En-tête ---- */
+.bandeau{
+  position:sticky;top:0;z-index:20;
+  background:rgba(246,245,241,.94);
+  backdrop-filter:saturate(1.4) blur(8px);
+  border-bottom:1px solid var(--encre-voile);
+}
+.bandeau .enveloppe{
+  display:flex;align-items:center;justify-content:space-between;
+  gap:1.5rem;min-height:4.5rem;
+}
+.marque{display:flex;align-items:center;gap:.75rem;text-decoration:none}
+.marque img{height:2.25rem;width:auto}
+.marque .nom{font-weight:600;letter-spacing:.02em;font-size:1.0625rem}
+.menu{display:flex;gap:1.75rem;align-items:center}
+.menu a{
+  text-decoration:none;color:var(--gris);
+  font-family:"IBM Plex Mono",monospace;font-size:.75rem;
+  letter-spacing:.1em;text-transform:uppercase;
+  padding-bottom:2px;border-bottom:1px solid transparent;
+  transition:color .2s,border-color .2s;
+}
+.menu a:hover{color:var(--encre);border-color:var(--or)}
+@media(max-width:44rem){.menu{display:none}}
+
+/* ---- Hero ---- */
+.hero{
+  background:var(--encre);
+  color:var(--papier);
+  padding:6.5rem 0 5rem;
+  position:relative;overflow:hidden;
+}
+.hero::after{
+  content:"";position:absolute;left:0;right:0;bottom:0;height:1px;
+  background:linear-gradient(90deg,transparent,var(--or) 22%,var(--or) 78%,transparent);
+}
+.hero .prefixe{
+  color:var(--or-clair);opacity:.85;margin-bottom:2.25rem;
+  display:block;
+}
+.hero h1{
+  font-weight:200;
+  font-size:clamp(2.75rem,8vw,5.25rem);
+  line-height:1.02;
+  letter-spacing:-.015em;
+  margin:0 0 1.75rem;
+  max-width:16ch;
+}
+.hero h1 em{font-style:italic;color:var(--or-clair);font-weight:300}
+.hero p{
+  max-width:46ch;font-size:1.1875rem;line-height:1.75;
+  color:rgba(246,245,241,.78);margin:0 0 2.5rem;
+}
+.actions{display:flex;flex-wrap:wrap;gap:.875rem}
+.bouton{
+  display:inline-block;text-decoration:none;
+  font-family:"IBM Plex Mono",monospace;font-size:.75rem;
+  letter-spacing:.11em;text-transform:uppercase;
+  padding:.9rem 1.6rem;border:1px solid var(--or);
+  transition:background .2s,color .2s;
+}
+.bouton.plein{background:var(--or);color:var(--encre-profond);font-weight:500}
+.bouton.plein:hover{background:var(--or-clair)}
+.bouton.vide{color:var(--or-clair)}
+.bouton.vide:hover{background:rgba(184,145,43,.14)}
+
+/* ---- Sections ---- */
+.section{padding:5.5rem 0}
+.section + .section{border-top:1px solid var(--encre-voile)}
+.titre-section{
+  display:flex;align-items:baseline;gap:1rem;
+  margin:0 0 3rem;
+}
+.titre-section .etiquette{color:var(--or);white-space:nowrap}
+.titre-section .trait{flex:1;height:1px;background:var(--encre-voile)}
+h2{
+  font-weight:600;font-size:clamp(1.5rem,3.5vw,2rem);
+  letter-spacing:-.01em;margin:0;
+}
+
+/* ---- Fiche d'ouvrage : le catalogue d'éditeur ---- */
+.ouvrage{
+  display:grid;
+  grid-template-columns:minmax(0,15rem) minmax(0,1fr);
+  gap:3rem;
+  padding:3rem 0;
+}
+.ouvrage + .ouvrage{border-top:1px solid var(--encre-voile)}
+.couverture{
+  background:var(--papier-pur);
+  box-shadow:0 1px 2px rgba(14,30,60,.10),0 14px 34px -14px rgba(14,30,60,.32);
+  aspect-ratio:11/17;
+  display:flex;align-items:center;justify-content:center;
+  overflow:hidden;
+}
+.couverture img{width:100%;height:100%;object-fit:cover}
+.ouvrage h3{
+  font-weight:600;font-size:1.75rem;line-height:1.2;
+  margin:0 0 .35rem;letter-spacing:-.01em;
+}
+.sous-titre{
+  font-style:italic;color:var(--gris);
+  font-size:1.0625rem;margin:0 0 1.5rem;
+}
+.resume{margin:0 0 1.75rem;max-width:56ch}
+
+/* La fiche bibliographique — signature de la page */
+.fiche{
+  border-top:1px solid var(--encre);
+  border-bottom:1px solid var(--encre-voile);
+  margin:0 0 1.75rem;padding:.25rem 0 0;
+  font-family:"IBM Plex Mono",monospace;
+  font-size:.75rem;
+}
+.fiche div{
+  display:flex;gap:1rem;
+  padding:.55rem 0;
+  border-bottom:1px dotted var(--encre-voile);
+}
+.fiche div:last-child{border-bottom:0}
+.fiche dt{
+  flex:0 0 8.5rem;margin:0;
+  letter-spacing:.1em;text-transform:uppercase;
+  color:var(--gris);font-size:.6875rem;line-height:1.55;
+}
+.fiche dd{margin:0;color:var(--encre);font-weight:500}
+.fiche .a-completer{color:#9AA1AC;font-weight:400}
+
+.achats{display:flex;flex-wrap:wrap;gap:.75rem;align-items:center}
+.achat{
+  text-decoration:none;
+  font-family:"IBM Plex Mono",monospace;font-size:.75rem;
+  letter-spacing:.09em;text-transform:uppercase;
+  padding:.7rem 1.25rem;border:1px solid var(--encre);
+  transition:background .2s,color .2s;
+}
+.achat.direct{background:var(--encre);color:var(--papier);font-weight:500}
+.achat.direct:hover{background:var(--encre-profond)}
+.achat.autre{color:var(--encre)}
+.achat.autre:hover{background:var(--encre-voile)}
+.note-achat{font-size:.8125rem;color:var(--gris);font-style:italic}
+@media(max-width:46rem){
+  .ouvrage{grid-template-columns:1fr;gap:1.75rem}
+  .couverture{max-width:12rem}
+  .fiche dt{flex:0 0 6.5rem}
+}
+
+/* ---- Collections ---- */
+.collections{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--encre-voile)}
+.collection{background:var(--papier);padding:2rem 1.75rem}
+.collection .etiquette{color:var(--or);display:block;margin-bottom:.85rem}
+.collection h3{font-weight:600;font-size:1.1875rem;margin:0 0 .6rem}
+.collection p{margin:0;font-size:.9375rem;color:var(--gris);line-height:1.65}
+@media(max-width:46rem){.collections{grid-template-columns:1fr}}
+
+/* ---- Maison ---- */
+.maison{display:grid;grid-template-columns:1.25fr 1fr;gap:4rem;align-items:start}
+.maison p{max-width:54ch}
+.coordonnees{
+  border-left:2px solid var(--or);padding-left:1.5rem;
+  font-family:"IBM Plex Mono",monospace;font-size:.8125rem;line-height:2;
+}
+.coordonnees a{color:var(--encre);text-decoration-color:var(--or);text-underline-offset:3px}
+.coordonnees span{display:block;color:var(--gris);font-size:.6875rem;letter-spacing:.1em;text-transform:uppercase;margin-top:1.25rem}
+.coordonnees span:first-child{margin-top:0}
+@media(max-width:46rem){.maison{grid-template-columns:1fr;gap:2.5rem}}
+
+/* ---- Pied ---- */
+.pied{background:var(--encre);color:rgba(246,245,241,.62);padding:3.5rem 0 2.5rem;font-size:.875rem}
+.pied .enveloppe{display:flex;flex-wrap:wrap;gap:2rem;justify-content:space-between;align-items:flex-start}
+.pied img{height:2.5rem;width:auto;margin-bottom:1rem}
+.pied a{color:rgba(246,245,241,.62);text-decoration-color:var(--or)}
+.pied a:hover{color:var(--papier)}
+.pied .legal{font-family:"IBM Plex Mono",monospace;font-size:.6875rem;line-height:2;letter-spacing:.04em}
+</style>
+</head>
+<body>
+
+<header class="bandeau">
+  <div class="enveloppe">
+    <a class="marque" href="#">
+      <img src="assets/logo-editions-st.png" alt="Éditions ST">
+    </a>
+    <nav class="menu">
+      <a href="#catalogue">Catalogue</a>
+      <a href="#collections">Collections</a>
+      <a href="#maison">La maison</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="enveloppe">
+    <span class="etiquette prefixe">Éditeur — ISBN 978-2-925678 — Québec</span>
+    <h1>Des idées qui <em>prennent vie</em></h1>
+    <p>Éditions ST publie des ouvrages qui donnent au lecteur de quoi décider : des grilles, des seuils, des repères. Affaires, jeunesse, jeux.</p>
+    <div class="actions">
+      <a class="bouton plein" href="#catalogue">Voir le catalogue</a>
+      <a class="bouton vide" href="#maison">La maison</a>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="catalogue">
+  <div class="enveloppe">
+    <div class="titre-section">
+      <span class="etiquette">01 — Catalogue</span>
+      <span class="trait"></span>
+    </div>
+
+    <article class="ouvrage">
+      <div class="couverture">
+        <img src="assets/couverture-lecart-cest-vous.jpg" alt="Couverture de L'écart, c'est vous">
+      </div>
+      <div>
+        <h3>L'écart, c'est vous</h3>
+        <p class="sous-titre">Décider, construire, vérifier, durer avec l'IA.</p>
+        <p class="resume">Entre ce que l'IA promet et ce qu'elle livre dans une PME, il y a un écart. Ce livre ne parle pas d'outils : il parle de décisions — quelle tâche automatiser, à quel seuil arrêter, comment vérifier. Aucune capture d'écran, des grilles utilisables lundi matin.</p>
+        <dl class="fiche">
+          <div><dt>ISBN</dt><dd>978-2-925678-00-7</dd></div>
+          <div><dt>Parution</dt><dd>2026</dd></div>
+          <div><dt>Format</dt><dd>Broché, 5,5 × 8,5 po</dd></div>
+          <div><dt>Langue</dt><dd>Français</dd></div>
+          <div><dt>Auteur</dt><dd>Sylvain Tremblay</dd></div>
+        </dl>
+        <div class="achats">
+          <a class="achat direct" href="#" rel="noopener">Acheter chez Lulu</a>
+          <a class="achat autre" href="#" rel="noopener">Amazon</a>
+          <span class="note-achat">L'achat chez Lulu soutient directement la maison.</span>
+        </div>
+      </div>
+    </article>
+
+    <article class="ouvrage">
+      <div class="couverture">
+        <img src="assets/couverture-lia-en-action.jpg" alt="Couverture de L'IA en Action">
+      </div>
+      <div>
+        <h3>L'IA en Action</h3>
+        <p class="sous-titre">Stratégies concrètes pour la croissance des PME</p>
+        <p class="resume">Le premier ouvrage de la maison. Un parcours pratique pour dirigeants de petites et moyennes entreprises qui veulent passer de la curiosité à l'usage, avec des budgets serrés et des équipes réduites.</p>
+        <dl class="fiche">
+          <div><dt>ISBN</dt><dd class="a-completer">à compléter</dd></div>
+          <div><dt>Parution</dt><dd>2025</dd></div>
+          <div><dt>Format</dt><dd class="a-completer">à compléter</dd></div>
+          <div><dt>Langue</dt><dd>Français</dd></div>
+          <div><dt>Auteur</dt><dd>Sylvain Tremblay</dd></div>
+        </dl>
+        <div class="achats">
+          <a class="achat direct" href="#" rel="noopener">Acheter chez Lulu</a>
+          <a class="achat autre" href="#" rel="noopener">Amazon</a>
+        </div>
+      </div>
+    </article>
+  </div>
+</section>
+
+<section class="section" id="collections">
+  <div class="enveloppe">
+    <div class="titre-section">
+      <span class="etiquette">02 — Collections</span>
+      <span class="trait"></span>
+    </div>
+    <div class="collections">
+      <div class="collection">
+        <span class="etiquette">Affaires</span>
+        <h3>Décider avec l'IA</h3>
+        <p>Des ouvrages pour dirigeants de PME. Pas de démonstrations d'outils : des cadres de décision et des seuils vérifiables.</p>
+      </div>
+      <div class="collection">
+        <span class="etiquette">Jeunesse</span>
+        <h3>Albums illustrés</h3>
+        <p>Des livres illustrés où le texte et l'image se répondent, conçus pour être lus à voix haute.</p>
+      </div>
+      <div class="collection">
+        <span class="etiquette">Jeux</span>
+        <h3>Mots cachés</h3>
+        <p>Des recueils de mots cachés en français, pensés pour le confort de lecture : grande grille, gros caractères.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="maison">
+  <div class="enveloppe">
+    <div class="titre-section">
+      <span class="etiquette">03 — La maison</span>
+      <span class="trait"></span>
+    </div>
+    <div class="maison">
+      <div>
+        <h2 style="margin-bottom:1.25rem">Une petite maison, des livres qui servent</h2>
+        <p>Éditions ST est une maison d'édition québécoise fondée par Sylvain Tremblay, consultant en stratégie et en intelligence artificielle. Elle publie ses propres ouvrages ainsi que des titres illustrés et des recueils de jeux.</p>
+        <p>Chaque titre porte un ISBN attribué par Bibliothèque et Archives nationales du Québec et fait l'objet d'un dépôt légal. Les ouvrages sont imprimés à la demande et expédiés depuis l'imprimeur le plus proche du lecteur.</p>
+        <p><strong>ST Publishing</strong> est l'empreinte anglophone de la maison.</p>
+      </div>
+      <div class="coordonnees" id="contact">
+        <span>Écrire à la maison</span>
+        <a href="mailto:info@editionsst.com">info@editionsst.com</a>
+        <span>L'auteur</span>
+        <a href="https://sylvaintremblay.com">sylvaintremblay.com</a>
+        <span>Préfixe éditeur</span>
+        978-2-925678
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="pied">
+  <div class="enveloppe">
+    <div>
+      <img src="assets/logo-editions-st-blanc.png" alt="Éditions ST">
+      <div>Éditions ST · ST Publishing</div>
+    </div>
+    <div class="legal">
+      © <span id="annee">2026</span> Éditions ST<br>
+      Dépôt légal — Bibliothèque et Archives nationales du Québec<br>
+      <a href="mailto:info@editionsst.com">info@editionsst.com</a>
+    </div>
+  </div>
+</footer>
+
+<script>document.getElementById('annee').textContent=new Date().getFullYear();</script>
+</body>
+</html>

@@ -1,6 +1,17 @@
 # editionsst.com
 
-Site statique d'Éditions ST, servi par GitHub Pages.
+Site statique et bilingue d'Éditions ST, servi par GitHub Pages.
+
+- `/` — français, marque **Éditions ST**
+- `/en/` — anglais, marque **ST Publishing** (l'empreinte anglophone de la maison)
+
+Les deux pages partagent `assets/style.css`. Un changement de style se fait donc une seule fois.
+
+## Aperçu local
+
+```bash
+python3 -m http.server 8000
+```
 
 ## Mise en ligne
 
@@ -20,18 +31,25 @@ Site statique d'Éditions ST, servi par GitHub Pages.
 
 editionsst.ca et stpublishing.ca : redirection d'URL vers https://editionsst.com
 
-## Images à déposer dans /assets
+## Images dans /assets
 
-| Fichier                             | Source                                              |
-|-------------------------------------|-----------------------------------------------------|
-| logo-editions-st.png                | 01_editions_st_logo_principal_couleur.png           |
-| logo-editions-st-blanc.png          | 01_editions_st_logo_principal_noir_blanc_transparent.png |
-| icone-st.png                        | 04_icone_st_fond_bleu.png (redimensionné 180 px)    |
-| couverture-lecart-cest-vous.jpg     | couverture avant seule, ~800 px de large            |
-| couverture-lia-en-action.jpg        | couverture avant seule, ~800 px de large            |
-| og-editions-st.png                  | 1200 × 630 px, pour les partages sur les réseaux    |
+| Fichier                          | Dimensions  | Source                                                    |
+|----------------------------------|-------------|-----------------------------------------------------------|
+| logo-editions-st.png             | 208 × 144   | 01_editions_st_logo_principal_couleur.png                 |
+| logo-editions-st-blanc.png       | 240 × 160   | 01_editions_st_logo_principal_noir_blanc_transparent.png, encre inversée |
+| logo-st-publishing.png           | 525 × 144   | 02_st_publishing_horizontal.png                           |
+| logo-st-publishing-blanc.png     | 240 × 160   | 01_st_publishing_white_transparent.png                    |
+| icone-st.png                     | 180 × 180   | 04_icone_st_fond_bleu.png, carte bleue découpée — sert aux deux pages |
+| couverture-lecart-cest-vous.jpg  | 700 × 1073  | couverture de l'epub français                             |
+| couverture-lia-en-action.jpg     | 800 × 1236  | IA_en_action_front_cover.jpg                              |
+| couverture-ai-in-action.jpg      | 800 × 1273  | couverture de l'epub anglais                              |
+| og-editions-st.png               | 1200 × 630  | composée (logo blanc + filet or sur marine)               |
+| og-st-publishing.png             | 1200 × 630  | composée (idem, marque anglaise)                          |
 
-## À compléter dans index.html
+## À compléter
 
-- Liens Lulu et Amazon (`href="#"` dans les blocs `.achats`)
-- ISBN et format de *L'IA en Action* (`class="a-completer"`)
+- **Liens Lulu et Amazon** (`href="#"` dans les blocs `.achats`) : quatre liens côté français
+  (deux ouvrages), deux côté anglais. Aucune URL n'a été fournie à ce jour.
+- ISBN et format de *L'IA en Action* / *AI in Action* (`class="a-completer"`).
+- *The Gap Is You.* est annoncé « Translation in progress ». À basculer en ouvrage disponible
+  quand la traduction sera publiée : couverture, ISBN, format, liens d'achat.

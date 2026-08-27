@@ -6,6 +6,9 @@
 <title>Éditions ST — Des idées qui prennent vie</title>
 <meta name="description" content="Maison d'édition québécoise. Ouvrages d'affaires, jeunesse et jeux. Éditeur de Sylvain Tremblay.">
 <link rel="canonical" href="https://editionsst.com/">
+<link rel="alternate" hreflang="fr-CA" href="https://editionsst.com/">
+<link rel="alternate" hreflang="en" href="https://editionsst.com/en/">
+<link rel="alternate" hreflang="x-default" href="https://editionsst.com/">
 <meta property="og:title" content="Éditions ST — Des idées qui prennent vie">
 <meta property="og:description" content="Maison d'édition québécoise. Ouvrages d'affaires, jeunesse et jeux.">
 <meta property="og:type" content="website">
@@ -16,221 +19,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,200;0,300;0,400;0,600;0,700;1,300;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
-<style>
-:root{
-  --encre:#0E1E3C;
-  --encre-profond:#08142A;
-  --encre-voile:rgba(14,30,60,.10);
-  --or:#B8912B;
-  --or-clair:#E0BE63;
-  --papier:#F6F5F1;
-  --papier-pur:#FFFFFF;
-  --gris:#59616E;
-  --mesure:68rem;
-}
-*{box-sizing:border-box}
-html{scroll-behavior:smooth}
-@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{animation:none!important;transition:none!important}}
-body{
-  margin:0;
-  background:var(--papier);
-  color:var(--encre);
-  font-family:"Spectral",Georgia,serif;
-  font-weight:300;
-  font-size:1.0625rem;
-  line-height:1.7;
-  -webkit-font-smoothing:antialiased;
-}
-img{max-width:100%;display:block}
-a{color:inherit}
-:focus-visible{outline:2px solid var(--or);outline-offset:3px}
-
-.enveloppe{width:100%;max-width:var(--mesure);margin:0 auto;padding:0 1.5rem}
-
-/* ---- Étiquette monospace : la trame bibliographique de la maison ---- */
-.etiquette{
-  font-family:"IBM Plex Mono",ui-monospace,monospace;
-  font-size:.6875rem;
-  letter-spacing:.16em;
-  text-transform:uppercase;
-  font-weight:500;
-}
-
-/* ---- En-tête ---- */
-.bandeau{
-  position:sticky;top:0;z-index:20;
-  background:rgba(246,245,241,.94);
-  backdrop-filter:saturate(1.4) blur(8px);
-  border-bottom:1px solid var(--encre-voile);
-}
-.bandeau .enveloppe{
-  display:flex;align-items:center;justify-content:space-between;
-  gap:1.5rem;min-height:4.5rem;
-}
-.marque{display:flex;align-items:center;gap:.75rem;text-decoration:none}
-.marque img{height:2.25rem;width:auto}
-.marque .nom{font-weight:600;letter-spacing:.02em;font-size:1.0625rem}
-.menu{display:flex;gap:1.75rem;align-items:center}
-.menu a{
-  text-decoration:none;color:var(--gris);
-  font-family:"IBM Plex Mono",monospace;font-size:.75rem;
-  letter-spacing:.1em;text-transform:uppercase;
-  padding-bottom:2px;border-bottom:1px solid transparent;
-  transition:color .2s,border-color .2s;
-}
-.menu a:hover{color:var(--encre);border-color:var(--or)}
-@media(max-width:44rem){.menu{display:none}}
-
-/* ---- Hero ---- */
-.hero{
-  background:var(--encre);
-  color:var(--papier);
-  padding:6.5rem 0 5rem;
-  position:relative;overflow:hidden;
-}
-.hero::after{
-  content:"";position:absolute;left:0;right:0;bottom:0;height:1px;
-  background:linear-gradient(90deg,transparent,var(--or) 22%,var(--or) 78%,transparent);
-}
-.hero .prefixe{
-  color:var(--or-clair);opacity:.85;margin-bottom:2.25rem;
-  display:block;
-}
-.hero h1{
-  font-weight:200;
-  font-size:clamp(2.75rem,8vw,5.25rem);
-  line-height:1.02;
-  letter-spacing:-.015em;
-  margin:0 0 1.75rem;
-  max-width:16ch;
-}
-.hero h1 em{font-style:italic;color:var(--or-clair);font-weight:300}
-.hero p{
-  max-width:46ch;font-size:1.1875rem;line-height:1.75;
-  color:rgba(246,245,241,.78);margin:0 0 2.5rem;
-}
-.actions{display:flex;flex-wrap:wrap;gap:.875rem}
-.bouton{
-  display:inline-block;text-decoration:none;
-  font-family:"IBM Plex Mono",monospace;font-size:.75rem;
-  letter-spacing:.11em;text-transform:uppercase;
-  padding:.9rem 1.6rem;border:1px solid var(--or);
-  transition:background .2s,color .2s;
-}
-.bouton.plein{background:var(--or);color:var(--encre-profond);font-weight:500}
-.bouton.plein:hover{background:var(--or-clair)}
-.bouton.vide{color:var(--or-clair)}
-.bouton.vide:hover{background:rgba(184,145,43,.14)}
-
-/* ---- Sections ---- */
-.section{padding:5.5rem 0}
-.section + .section{border-top:1px solid var(--encre-voile)}
-.titre-section{
-  display:flex;align-items:baseline;gap:1rem;
-  margin:0 0 3rem;
-}
-.titre-section .etiquette{color:var(--or);white-space:nowrap}
-.titre-section .trait{flex:1;height:1px;background:var(--encre-voile)}
-h2{
-  font-weight:600;font-size:clamp(1.5rem,3.5vw,2rem);
-  letter-spacing:-.01em;margin:0;
-}
-
-/* ---- Fiche d'ouvrage : le catalogue d'éditeur ---- */
-.ouvrage{
-  display:grid;
-  grid-template-columns:minmax(0,15rem) minmax(0,1fr);
-  gap:3rem;
-  padding:3rem 0;
-}
-.ouvrage + .ouvrage{border-top:1px solid var(--encre-voile)}
-.couverture{
-  background:var(--papier-pur);
-  box-shadow:0 1px 2px rgba(14,30,60,.10),0 14px 34px -14px rgba(14,30,60,.32);
-  aspect-ratio:11/17;
-  display:flex;align-items:center;justify-content:center;
-  overflow:hidden;
-}
-.couverture img{width:100%;height:100%;object-fit:cover}
-.ouvrage h3{
-  font-weight:600;font-size:1.75rem;line-height:1.2;
-  margin:0 0 .35rem;letter-spacing:-.01em;
-}
-.sous-titre{
-  font-style:italic;color:var(--gris);
-  font-size:1.0625rem;margin:0 0 1.5rem;
-}
-.resume{margin:0 0 1.75rem;max-width:56ch}
-
-/* La fiche bibliographique — signature de la page */
-.fiche{
-  border-top:1px solid var(--encre);
-  border-bottom:1px solid var(--encre-voile);
-  margin:0 0 1.75rem;padding:.25rem 0 0;
-  font-family:"IBM Plex Mono",monospace;
-  font-size:.75rem;
-}
-.fiche div{
-  display:flex;gap:1rem;
-  padding:.55rem 0;
-  border-bottom:1px dotted var(--encre-voile);
-}
-.fiche div:last-child{border-bottom:0}
-.fiche dt{
-  flex:0 0 8.5rem;margin:0;
-  letter-spacing:.1em;text-transform:uppercase;
-  color:var(--gris);font-size:.6875rem;line-height:1.55;
-}
-.fiche dd{margin:0;color:var(--encre);font-weight:500}
-.fiche .a-completer{color:#9AA1AC;font-weight:400}
-
-.achats{display:flex;flex-wrap:wrap;gap:.75rem;align-items:center}
-.achat{
-  text-decoration:none;
-  font-family:"IBM Plex Mono",monospace;font-size:.75rem;
-  letter-spacing:.09em;text-transform:uppercase;
-  padding:.7rem 1.25rem;border:1px solid var(--encre);
-  transition:background .2s,color .2s;
-}
-.achat.direct{background:var(--encre);color:var(--papier);font-weight:500}
-.achat.direct:hover{background:var(--encre-profond)}
-.achat.autre{color:var(--encre)}
-.achat.autre:hover{background:var(--encre-voile)}
-.note-achat{font-size:.8125rem;color:var(--gris);font-style:italic}
-@media(max-width:46rem){
-  .ouvrage{grid-template-columns:1fr;gap:1.75rem}
-  .couverture{max-width:12rem}
-  .fiche dt{flex:0 0 6.5rem}
-}
-
-/* ---- Collections ---- */
-.collections{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--encre-voile)}
-.collection{background:var(--papier);padding:2rem 1.75rem}
-.collection .etiquette{color:var(--or);display:block;margin-bottom:.85rem}
-.collection h3{font-weight:600;font-size:1.1875rem;margin:0 0 .6rem}
-.collection p{margin:0;font-size:.9375rem;color:var(--gris);line-height:1.65}
-@media(max-width:46rem){.collections{grid-template-columns:1fr}}
-
-/* ---- Maison ---- */
-.maison{display:grid;grid-template-columns:1.25fr 1fr;gap:4rem;align-items:start}
-.maison p{max-width:54ch}
-.coordonnees{
-  border-left:2px solid var(--or);padding-left:1.5rem;
-  font-family:"IBM Plex Mono",monospace;font-size:.8125rem;line-height:2;
-}
-.coordonnees a{color:var(--encre);text-decoration-color:var(--or);text-underline-offset:3px}
-.coordonnees span{display:block;color:var(--gris);font-size:.6875rem;letter-spacing:.1em;text-transform:uppercase;margin-top:1.25rem}
-.coordonnees span:first-child{margin-top:0}
-@media(max-width:46rem){.maison{grid-template-columns:1fr;gap:2.5rem}}
-
-/* ---- Pied ---- */
-.pied{background:var(--encre);color:rgba(246,245,241,.62);padding:3.5rem 0 2.5rem;font-size:.875rem}
-.pied .enveloppe{display:flex;flex-wrap:wrap;gap:2rem;justify-content:space-between;align-items:flex-start}
-.pied img{height:2.5rem;width:auto;margin-bottom:1rem}
-.pied a{color:rgba(246,245,241,.62);text-decoration-color:var(--or)}
-.pied a:hover{color:var(--papier)}
-.pied .legal{font-family:"IBM Plex Mono",monospace;font-size:.6875rem;line-height:2;letter-spacing:.04em}
-</style>
+<link rel="stylesheet" href="assets/style.css">
 </head>
 <body>
 
@@ -245,6 +34,7 @@ h2{
       <a href="#maison">La maison</a>
       <a href="#contact">Contact</a>
     </nav>
+    <a class="langue" href="/en/" hreflang="en" lang="en">English</a>
   </div>
 </header>
 

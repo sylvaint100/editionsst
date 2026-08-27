@@ -139,6 +139,25 @@ la police du lettrage n'est pas identifiée avec certitude.
 - **Attention** : `B0HFCBM9B6` sur Amazon.ca est une **épreuve** (« ÉPREUVE : L'écart, c'est
   vous. »), publiquement visible et rattachée à la fiche Kindle comme format broché. Ne
   jamais y faire pointer le site.
+
+### ASIN des formats imprimés
+
+Relevés dans le tableau KDP le 27 août 2026. Ce sont les **ISBN-10** des mêmes ouvrages,
+recoupés par leur clé de contrôle avec les ISBN-13 affichés sur le site :
+
+| Ouvrage | Broché | Relié |
+|---------|--------|-------|
+| *L'écart, c'est vous.* | `2925678009` | `2925678068` |
+| *The Gap Is You.* | `2925678122` | `2925678130` |
+
+**Ces pages n'existaient pas encore le 27 août** : `amazon.ca/dp/<asin>` renvoyait 404
+pour les quatre, alors que les deux ASIN Kindle renvoyaient 200 (témoin : ce n'est pas un
+blocage anti-robot). KDP réserve l'ASIN mais ne publie la page qu'au jour de la sortie —
+30 août pour le français, 6 septembre pour l'anglais.
+
+**Ne pas ajouter de bouton par format.** Amazon relie lui-même les trois formats sur une
+même fiche produit : le lien Kindle déjà en place donnera accès au broché et au relié dès
+leur publication. Un seul lien Amazon par ouvrage suffit.
 - Les ISBN et formats de *L'IA en Action* / *AI in Action* restent marqués `.a-completer`.
 - **Où trouver les ISBN.** Les fichiers `page-de-droits-*.md` du Drive ne sont pas fiables
   côté français : ils portent encore `[ISBN]` en placeholder. La source de vérité est la

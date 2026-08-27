@@ -64,11 +64,6 @@ a{color:inherit}
 }
 .menu a:hover{color:var(--encre);border-color:var(--or)}
 @media(max-width:44rem){.menu{display:none}}
-/* Le logo anglais est le plus large des deux (2,72:1 contre 1,44:1) : à 4.5rem il
-   occupe 196px, et sous 23rem il heurterait la bascule de langue, qui reste
-   visible en mobile. Seuil calé pour que 375px — la largeur de téléphone la plus
-   répandue — garde la pleine taille. */
-@media(max-width:23rem){:root{--hauteur-logo:3.5rem}}
 
 /* ---- Hero ---- */
 .hero{

@@ -65,27 +65,47 @@ bibliographiques ; les métadonnées manquantes portent la classe `.a-completer`
 marqueur pour ce qui reste à remplir. Un ouvrage non encore publié utilise `.couverture.attente`
 (cartouche à la place de l'image) et `.mention-parution` à la place des boutons d'achat.
 
-Points de rupture : `23rem` (logos du bandeau rétrécis), `44rem` (menu masqué), `46rem`
-(grilles ouvrage/collections/maison en une colonne). Les préférences
-`prefers-reduced-motion` sont respectées.
+Points de rupture : `44rem` (menu masqué), `46rem` (grilles ouvrage/collections/maison en
+une colonne). Les préférences `prefers-reduced-motion` sont respectées.
 
 ### Logos du bandeau
 
-Les deux marques du bandeau sont des lockups **verticaux** : emblème (monogramme ST sur
-livre ouvert) côté français, « ST » sur « PUBLISHING » côté anglais. Elles sont
-**recadrées au contenu** — aucune marge transparente dans le PNG — pour que
-`--hauteur-logo` soit la hauteur *réellement visible* et que les deux marques pèsent pareil
-d'une langue à l'autre. Tout logo qui remplace ceux-là doit l'être aussi, sinon il
-paraîtra plus petit à hauteur CSS égale.
+Les deux marques du bandeau sont **le même emblème** : monogramme ST sur livre ouvert,
+nom de la maison dessous entre deux filets or, signature en dessous. Seuls le nom et la
+signature changent d'une langue à l'autre. Proportions 1,44:1 en français, 1,61:1 en
+anglais — soit 104 × 72 px et 116 × 72 px à l'affichage. Le pied de page porte déjà le
+même emblème en blanc des deux côtés.
+
+Les deux fichiers sont **recadrés au contenu** — aucune marge transparente dans le PNG —
+pour que `--hauteur-logo` soit la hauteur *réellement visible*. C'est le piège d'origine :
+les fichiers livrés portaient des marges dans la toile, si bien que `height` s'appliquait
+au fichier et non au dessin, et que les deux marques ne pesaient pas pareil. Tout logo qui
+remplace ceux-là doit être recadré de la même façon.
 
 `--hauteur-logo` (4.5rem) pilote à la fois la hauteur de l'image et le `min-height` du
-bandeau : la régler suffit, il n'y a rien d'autre à ajuster. Les proportions diffèrent
-(1,44:1 en français, 2,72:1 en anglais), donc le logo anglais est presque deux fois plus
-large à hauteur égale ; c'est ce qui impose le repli à `23rem`.
+bandeau : la régler suffit, il n'y a rien d'autre à ajuster.
 
-La source anglaise (`06_st_publishing_compact.png`, contenu 207 × 76) est la seule version
-verticale que fournit la charte : elle sort à 2x seulement, contre 3x côté français. Il
-n'existe pas de version haute résolution de ce lockup.
+### Où vivent les sources de logo
+
+Attention : le dossier `Logos/` de la charte **ne contient que les fichiers Éditions ST**
+plus deux ou trois variantes ST Publishing. Le jeu ST Publishing complet est dans un
+dossier distinct, `Logos_ST_Publishing/`, qui n'existe que sur le Drive :
+
+```
+~/sylvain@sylvaintremblay.com - Google Drive/Mon disque/Éditions ST/
+    Logos/                 → Éditions ST (copié aussi dans ~/Downloads)
+    Logos_ST_Publishing/   → ST Publishing, Drive seulement
+```
+
+C'est là que se trouve `01_st_publishing_primary_color.png`, l'emblème anglais. Il est
+**aplati sur fond noir opaque**, alors que son équivalent français est déjà détouré : la
+transparence a été récupérée par remplissage depuis les bords de l'image. L'opération est
+sûre parce que l'emblème ne contient que du bleu marine et de l'or, jamais de noir pur —
+mais il faut la refaire si le fichier est regénéré.
+
+Il n'existe **aucune version horizontale française** de la marque, alors que l'anglais en a
+une (`02_st_publishing_horizontal.png`). Ne pas en fabriquer une en composant du texte :
+la police du lettrage n'est pas identifiée avec certitude.
 
 ## Fichiers d'infrastructure — ne pas supprimer
 

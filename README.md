@@ -37,7 +37,7 @@ editionsst.ca et stpublishing.ca : redirection d'URL vers https://editionsst.com
 |----------------------------------|-------------|-----------------------------------------------------------|
 | logo-editions-st.png             | 312 × 216   | 01_editions_st_logo_principal_couleur.png, recadré au contenu |
 | logo-editions-st-blanc.png       | 240 × 160   | 01_editions_st_logo_principal_noir_blanc_transparent.png, encre inversée |
-| logo-st-publishing.png           | 392 × 144   | 06_st_publishing_compact.png, recadré au contenu           |
+| logo-st-publishing.png           | 347 × 216   | 01_st_publishing_primary_color.png, détouré du fond noir puis recadré |
 | logo-st-publishing-blanc.png     | 240 × 160   | 01_st_publishing_white_transparent.png                    |
 | icone-st.png                     | 180 × 180   | 04_icone_st_fond_bleu.png, carte bleue découpée — sert aux deux pages |
 | couverture-lecart-cest-vous.jpg  | 700 × 1073  | couverture de l'epub français                             |

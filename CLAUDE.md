@@ -65,8 +65,27 @@ bibliographiques ; les métadonnées manquantes portent la classe `.a-completer`
 marqueur pour ce qui reste à remplir. Un ouvrage non encore publié utilise `.couverture.attente`
 (cartouche à la place de l'image) et `.mention-parution` à la place des boutons d'achat.
 
-Points de rupture : `44rem` (menu masqué), `46rem` (grilles ouvrage/collections/maison en
-une colonne). Les préférences `prefers-reduced-motion` sont respectées.
+Points de rupture : `23rem` (logos du bandeau rétrécis), `44rem` (menu masqué), `46rem`
+(grilles ouvrage/collections/maison en une colonne). Les préférences
+`prefers-reduced-motion` sont respectées.
+
+### Logos du bandeau
+
+Les deux marques du bandeau sont des lockups **verticaux** : emblème (monogramme ST sur
+livre ouvert) côté français, « ST » sur « PUBLISHING » côté anglais. Elles sont
+**recadrées au contenu** — aucune marge transparente dans le PNG — pour que
+`--hauteur-logo` soit la hauteur *réellement visible* et que les deux marques pèsent pareil
+d'une langue à l'autre. Tout logo qui remplace ceux-là doit l'être aussi, sinon il
+paraîtra plus petit à hauteur CSS égale.
+
+`--hauteur-logo` (4.5rem) pilote à la fois la hauteur de l'image et le `min-height` du
+bandeau : la régler suffit, il n'y a rien d'autre à ajuster. Les proportions diffèrent
+(1,44:1 en français, 2,72:1 en anglais), donc le logo anglais est presque deux fois plus
+large à hauteur égale ; c'est ce qui impose le repli à `23rem`.
+
+La source anglaise (`06_st_publishing_compact.png`, contenu 207 × 76) est la seule version
+verticale que fournit la charte : elle sort à 2x seulement, contre 3x côté français. Il
+n'existe pas de version haute résolution de ce lockup.
 
 ## Fichiers d'infrastructure — ne pas supprimer
 

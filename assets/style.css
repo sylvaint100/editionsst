@@ -8,6 +8,9 @@
   --papier-pur:#FFFFFF;
   --gris:#59616E;
   --mesure:68rem;
+  /* Hauteur des logos du bandeau. Les deux marques sont recadrées au contenu
+     (aucune marge dans le PNG), donc c'est la hauteur réellement visible. */
+  --hauteur-logo:4.5rem;
 }
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
@@ -46,10 +49,10 @@ a{color:inherit}
 }
 .bandeau .enveloppe{
   display:flex;align-items:center;justify-content:space-between;
-  gap:1.5rem;min-height:4.5rem;
+  gap:1.5rem;min-height:calc(var(--hauteur-logo) + 1.5rem);
 }
 .marque{display:flex;align-items:center;gap:.75rem;text-decoration:none}
-.marque img{height:2.25rem;width:auto}
+.marque img{height:var(--hauteur-logo);width:auto}
 .marque .nom{font-weight:600;letter-spacing:.02em;font-size:1.0625rem}
 .menu{display:flex;gap:1.75rem;align-items:center}
 .menu a{
@@ -61,6 +64,11 @@ a{color:inherit}
 }
 .menu a:hover{color:var(--encre);border-color:var(--or)}
 @media(max-width:44rem){.menu{display:none}}
+/* Le logo anglais est le plus large des deux (2,72:1 contre 1,44:1) : à 4.5rem il
+   occupe 196px, et sous 23rem il heurterait la bascule de langue, qui reste
+   visible en mobile. Seuil calé pour que 375px — la largeur de téléphone la plus
+   répandue — garde la pleine taille. */
+@media(max-width:23rem){:root{--hauteur-logo:3.5rem}}
 
 /* ---- Hero ---- */
 .hero{

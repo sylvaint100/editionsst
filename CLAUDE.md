@@ -137,6 +137,17 @@ la police du lettrage n'est pas identifiée avec certitude.
   changement de fournisseur.
 - **Les quatre ouvrages ont un bouton direct.** Boutique `books.by/st-publishing`, slugs
   `lecart-cest-vous`, `the-gap-is-you`, `lia-en-action`, `ai-in-action`.
+- **Chaque page mène vers son marché Amazon.** La page française pointe vers
+  **amazon.ca**, l'anglaise vers **amazon.com** — ST Publishing s'adresse surtout à des
+  lecteurs américains et ses prix KDP sont en USD. Les ASIN sont identiques sur les deux
+  domaines ; seul ce qui est achetable diffère. Ne pas uniformiser les quatre liens sur un
+  seul domaine : c'est délibéré.
+- Le marché voisin est cité dans `.note-achat`, en petits caractères plutôt qu'en
+  deuxième bouton — une rangée d'achat porte déjà deux boutons et une note, et un
+  troisième bouton noierait le bouton direct, qui est celui qui rapporte le plus à la
+  maison. `.note-achat a` porte le filet or des liens du pied.
+- Le relié n'est pas distribué par amazon.ca : il faut passer par amazon.com. C'est
+  pourquoi son prix s'affiche en USD dans KDP.
 - Books.by ne vend que du **broché** — ni relié, ni numérique, au 28 août 2026. Les fiches
   annoncent pourtant trois formats : c'est Amazon qui porte le relié et le numérique.
 - **Le canal direct devance Amazon.** Le broché des deux nouveaux titres est achetable sur

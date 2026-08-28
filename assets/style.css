@@ -191,6 +191,10 @@ h2{
 .achat.autre{color:var(--encre)}
 .achat.autre:hover{background:var(--encre-voile)}
 .note-achat{font-size:.8125rem;color:var(--gris);font-style:italic}
+/* Marché secondaire cité dans la note : lisible comme lien, sans concurrencer
+   les boutons. Même filet or que les liens du pied de page. */
+.note-achat a{text-decoration-color:var(--or);text-underline-offset:2px}
+.note-achat a:hover{color:var(--encre)}
 @media(max-width:46rem){
   .ouvrage{grid-template-columns:1fr;gap:1.75rem}
   .couverture{max-width:12rem}

@@ -129,8 +129,15 @@ la police du lettrage n'est pas identifiée avec certitude.
 
 ## État incomplet du site
 
-- **Trois liens d'achat sont encore `href="#"`** : Lulu, pour les trois ouvrages. Aucune URL
-  Lulu n'a jamais été fournie ; ne pas en inventer.
+- **Plus aucun lien mort.** Lulu a été abandonné au profit de **Books.by**, la boutique de
+  vente directe de la maison (`books.by/st-publishing`, plan Pro). Aucune URL Lulu n'a
+  jamais été fournie ; ne pas en inventer et ne pas réintroduire ce canal sans décision.
+- Le bouton `.achat.direct` pointe vers Books.by et porte un libellé **neutre** — « Acheter
+  directement » / « Buy direct » — plutôt que le nom de la plateforme, pour survivre à un
+  changement de fournisseur.
+- *L'écart, c'est vous.* **n'a pas de bouton direct** : l'ouvrage n'est pas encore sur
+  Books.by. Le bouton a été retiré plutôt que laissé mort. À remettre dès que le livre y
+  paraît. Books.by ne vendait que du broché au 28 août 2026 — ni relié, ni numérique.
 - Les quatre liens Amazon en place, tous vérifiés sur la fiche produit le 27 août 2026 :
 
   | Ouvrage | ASIN | Note |

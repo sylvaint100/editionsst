@@ -49,9 +49,10 @@ editionsst.ca et stpublishing.ca : redirection d'URL vers https://editionsst.com
 
 ## À compléter
 
-- **Vente directe : Books.by**, pas Lulu. `books.by/st-publishing/lia-en-action` et
-  `.../ai-in-action` sont câblés ; *L'écart, c'est vous.* n'y est pas encore et n'a donc pas
-  de bouton direct. Les quatre liens Amazon sont câblés et vérifiés. Aucun lien mort.
+- **Vente directe : Books.by**, pas Lulu. Les quatre ouvrages y sont câblés, en plus de
+  leurs quatre liens Amazon. Aucun lien mort.
+- Les notes d'achat annoncent que le broché devance Amazon en vente directe. **À réviser
+  après le 30 août et le 6 septembre 2026**, quand Amazon aura rattrapé.
 - **ISBN de *L'IA en Action* / *AI in Action*** : en attente de la republication sous les
   ISBN Éditions ST. À ce moment-là, ISBN, format et lien Amazon se remplissent ensemble —
   la republication crée de nouvelles fiches, donc de nouveaux ASIN.

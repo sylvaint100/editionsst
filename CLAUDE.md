@@ -135,9 +135,14 @@ la police du lettrage n'est pas identifiée avec certitude.
 - Le bouton `.achat.direct` pointe vers Books.by et porte un libellé **neutre** — « Acheter
   directement » / « Buy direct » — plutôt que le nom de la plateforme, pour survivre à un
   changement de fournisseur.
-- *L'écart, c'est vous.* **n'a pas de bouton direct** : l'ouvrage n'est pas encore sur
-  Books.by. Le bouton a été retiré plutôt que laissé mort. À remettre dès que le livre y
-  paraît. Books.by ne vendait que du broché au 28 août 2026 — ni relié, ni numérique.
+- **Les quatre ouvrages ont un bouton direct.** Boutique `books.by/st-publishing`, slugs
+  `lecart-cest-vous`, `the-gap-is-you`, `lia-en-action`, `ai-in-action`.
+- Books.by ne vend que du **broché** — ni relié, ni numérique, au 28 août 2026. Les fiches
+  annoncent pourtant trois formats : c'est Amazon qui porte le relié et le numérique.
+- **Le canal direct devance Amazon.** Le broché des deux nouveaux titres est achetable sur
+  Books.by alors qu'Amazon est encore en précommande (30 août et 6 septembre 2026). Les
+  notes `.note-achat` le disent ; à réviser une fois les deux dates passées, sinon elles
+  deviendront fausses.
 - Les quatre liens Amazon en place, tous vérifiés sur la fiche produit le 27 août 2026 :
 
   | Ouvrage | ASIN | Note |

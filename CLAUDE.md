@@ -146,14 +146,15 @@ la police du lettrage n'est pas identifiée avec certitude.
   deuxième bouton — une rangée d'achat porte déjà deux boutons et une note, et un
   troisième bouton noierait le bouton direct, qui est celui qui rapporte le plus à la
   maison. `.note-achat a` porte le filet or des liens du pied.
-- Le relié n'est pas distribué par amazon.ca : il faut passer par amazon.com. C'est
-  pourquoi son prix s'affiche en USD dans KDP.
+- Le relié **est** achetable sur amazon.ca comme sur amazon.com — vérifié à la publication
+  de *L'écart, c'est vous.* : « En stock » et bouton d'ajout au panier sur les deux. Le prix
+  en USD affiché dans KDP avant la sortie ne signalait donc pas une absence de distribution.
 - Books.by ne vend que du **broché** — ni relié, ni numérique, au 28 août 2026. Les fiches
   annoncent pourtant trois formats : c'est Amazon qui porte le relié et le numérique.
-- **Le canal direct devance Amazon.** Le broché des deux nouveaux titres est achetable sur
-  Books.by alors qu'Amazon est encore en précommande (30 août et 6 septembre 2026). Les
-  notes `.note-achat` le disent ; à réviser une fois les deux dates passées, sinon elles
-  deviendront fausses.
+- **Le canal direct devançait Amazon.** C'est encore vrai pour *The Gap Is You.*, dont la
+  note le dit et qu'il faudra réviser après le **6 septembre 2026**. *L'écart, c'est vous.*
+  est paru : sa note est revenue au texte générique, et son bouton Amazon ne dit plus
+  « précommander ».
 - Les quatre liens Amazon en place, tous vérifiés sur la fiche produit le 27 août 2026 :
 
   | Ouvrage | ASIN | Note |
@@ -171,9 +172,13 @@ la police du lettrage n'est pas identifiée avec certitude.
   après la republication.
 - Un ISBN par format dans la fiche, le format en retrait via `.mention-format`. Le numéro
   garde le poids typographique, le mot « broché » / « ePub » s'efface en gris.
-- **Attention** : `B0HFCBM9B6` sur Amazon.ca est une **épreuve** (« ÉPREUVE : L'écart, c'est
-  vous. »), publiquement visible et rattachée à la fiche Kindle comme format broché. Ne
-  jamais y faire pointer le site.
+- **Résolu — les ASIN d'épreuve disparaissent à la publication.** Avant la sortie, la fiche
+  Kindle de *L'écart, c'est vous.* portait un sélecteur « Broché » menant à `B0HFCBM9B6`,
+  une épreuve intitulée « ÉPREUVE : … » et marquée indisponible. Cet ASIN est créé par
+  Amazon pour la commande d'exemplaires d'auteur et n'apparaît pas dans la bibliothèque
+  KDP : il n'y a rien à supprimer. À la publication, il a disparu de lui-même et les
+  sélecteurs pointent vers les vrais `2925678009` et `2925678068`. Si le cas se reproduit
+  pour un autre titre, attendre la sortie avant d'alerter qui que ce soit.
 
 ### ASIN des formats imprimés
 

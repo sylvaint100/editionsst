@@ -44,6 +44,9 @@ editionsst.ca et stpublishing.ca : redirection d'URL vers https://editionsst.com
 | couverture-lia-en-action.jpg     | 800 × 1236  | IA_en_action_front_cover.jpg                              |
 | couverture-ai-in-action.jpg      | 800 × 1273  | couverture de l'epub anglais                              |
 | couverture-the-gap-is-you.jpg    | 800 × 1243  | Amazon KDP/…/2. The Gap Is You./Couverture/The Gap Is You. - front cover.jpg |
+| couverture-lecart-cest-vous-3d.jpg | 725 × 1200 | maquette en volume, recto + dos de la jaquette d'impression, aplatie sur `--encre` |
+| couverture-the-gap-is-you-3d.jpg | 725 × 1200  | idem |
+| portrait-sylvain-tremblay.jpg    | 605 × 782   | découpé dans la quatrième de couverture |
 | og-editions-st.png               | 1200 × 630  | composée (logo blanc + filet or sur marine)               |
 | og-st-publishing.png             | 1200 × 630  | composée (idem, marque anglaise)                          |
 

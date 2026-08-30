@@ -34,6 +34,41 @@ tête d'`index.html` ; il a été extrait quand la deuxième page est arrivée, 
 modification de style n'ait pas à être faite deux fois. Toute règle nouvelle va dans cette
 feuille, jamais en double dans une page.
 
+### Pages d'ouvrage
+
+Deux pages de vente s'ajoutent aux deux pages de catalogue :
+
+| Chemin | Ouvrage | Marché Amazon |
+|--------|---------|---------------|
+| `lecart-cest-vous/index.html` | *L'écart, c'est vous.* | amazon.ca |
+| `en/the-gap-is-you/index.html` | *The Gap Is You.* | amazon.com |
+
+Ossature : bandeau → hero à deux colonnes → `#livre` → `#formats` → `#auteur` → édition dans
+l'autre langue → appel final → pied. Elles réutilisent `assets/style.css` ; le CSS qui leur
+est propre est groupé en fin de feuille sous « Page d'ouvrage ».
+
+**Dans le hero, les boutons d'achat sont des `.bouton`, pas des `.achat`.** `.achat` est
+bordé de `--encre` et deviendrait invisible sur le fond bleu nuit ; `.bouton.plein` et
+`.bouton.vide` portent la même hiérarchie doré/contour. Ailleurs sur ces pages, sur fond
+papier, on retrouve `.achat`.
+
+Les titres du catalogue mènent à ces pages via un lien dans le `<h3>`.
+
+### Maquettes de couverture en volume
+
+`couverture-*-3d.jpg` sont des maquettes fabriquées, pas des photographies. Elles
+assemblent le **vrai recto et le vrai dos** découpés dans la jaquette d'impression, en
+perspective à deux points de fuite : l'arête dos/couverture est l'endroit le plus proche,
+donc le plus haut, et les deux faces se raccourcissent en s'éloignant. Inverser ce sens
+donne un livre tordu — c'est l'erreur du premier essai.
+
+**Elles sont aplaties sur `--encre` et n'ont pas de transparence.** C'est ce qui les fait
+passer de 1063 ko à 138 ko. Elles ne peuvent donc paraître que sur le fond bleu nuit du
+hero : sur du papier, elles afficheraient un rectangle bleu. Si le fond du hero change, il
+faut les regénérer.
+
+`portrait-sylvain-tremblay.jpg` est découpé dans la quatrième de couverture, liseré retiré.
+
 Chaque page garde la même ossature : bandeau collant → hero → `#catalogue` → `#collections` →
 `#maison` (`#imprint` côté anglais, qui contient `#contact`) → pied. Les liens du menu sont des
 ancres vers ces identifiants.

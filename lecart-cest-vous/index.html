@@ -107,23 +107,8 @@
   ]
 }
 </script>
-<!-- Meta Pixel Code -->
-<script>
-!function(f,b,e,v,n,t,s)
-{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-n.queue=[];t=b.createElement(e);t.async=!0;
-t.src=v;s=b.getElementsByTagName(e)[0];
-s.parentNode.insertBefore(t,s)}(window, document,'script',
-'https://connect.facebook.net/en_US/fbevents.js');
-fbq('init', '1334777188736124');
-fbq('track', 'PageView');
-</script>
-<noscript><img height="1" width="1" style="display:none"
-src="https://www.facebook.com/tr?id=1334777188736124&ev=PageView&noscript=1"
-/></noscript>
-<!-- End Meta Pixel Code -->
+<!-- Pixel Meta : chargé uniquement après consentement, voir assets/consentement.js -->
+<script src="../assets/consentement.js" defer></script>
 </head>
 <body>
 
@@ -280,7 +265,8 @@ src="https://www.facebook.com/tr?id=1334777188736124&ev=PageView&noscript=1"
     <div class="legal">
       © <span id="annee">2026</span> Éditions ST<br>
       Dépôt légal — Bibliothèque et Archives nationales du Québec<br>
-      <a href="mailto:info@editionsst.com">info@editionsst.com</a>
+      <a href="mailto:info@editionsst.com">info@editionsst.com</a><br>
+      <button type="button" class="lien-cookies" data-cookies-preferences>Cookies</button>
     </div>
   </div>
 </footer>

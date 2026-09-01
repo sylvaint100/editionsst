@@ -54,6 +54,21 @@ papier, on retrouve `.achat`.
 
 Les titres du catalogue mènent à ces pages via un lien dans le `<h3>`.
 
+### Vidéo intégrée
+
+La page française de *L'écart, c'est vous.* porte une vidéo HeyGen en tête de la section
+`#livre`. C'est la **seule dépendance externe** du site en dehors de Google Fonts.
+
+L'iframe livrée par le service porte `width="560" height="315"` et `frameborder` : ces
+attributs sont retirés et remplacés par `.video iframe`, qui impose `width:100%` et
+`aspect-ratio:16/9`. Sans ça, la vidéo déborde en mobile. `loading="lazy"` évite de la
+charger avant qu'on y arrive.
+
+**Ne pas remettre le paramètre `?t=` dans l'adresse.** L'URL fournie au départ portait
+`?t=23` — un temps de départ, alors que la vidéo dure 23 secondes : le lecteur s'ouvrait
+à la fin, sur « 0:23 / 0:23 ». Vérifié en chargeant les deux versions côte à côte. Pour
+choisir l'image d'attente, c'est la vignette qu'il faut régler chez HeyGen.
+
 ### Maquettes de couverture en volume
 
 `couverture-*-3d.jpg` sont des maquettes fabriquées, pas des photographies. Elles

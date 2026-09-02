@@ -29,7 +29,8 @@ python3 -m http.server 8000
 | ALIAS | @    | sylvaintremblay.github.io    |
 | CNAME | www  | sylvaintremblay.github.io    |
 
-editionsst.ca et stpublishing.ca : redirection d'URL vers https://editionsst.com
+editionsst.ca : redirection d'URL vers https://editionsst.com
+stpublishing.ca : redirection d'URL vers https://editionsst.com/en
 
 ## Images dans /assets
 

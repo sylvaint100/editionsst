@@ -1,7 +1,11 @@
-/* Bandeau de consentement (pixel Meta) — Loi 25 (Québec) et RGPD.
-   Le pixel n'est initialisé que si l'utilisateur clique « Accepter » ; un
-   refus est mémorisé au même titre qu'un accord et n'est jamais redemandé
-   tant que le choix n'est pas retiré depuis le lien « Cookies » du pied. */
+/* Boîte de dialogue modale de consentement (pixel Meta) — Loi 25 (Québec) et
+   RGPD. Le pixel n'est initialisé que si l'utilisateur clique « Accepter » ;
+   un refus est mémorisé au même titre qu'un accord et n'est jamais redemandé
+   tant que le choix n'est pas retiré depuis le lien « Cookies » du pied.
+   Fond assombri, boîte centrée : un bandeau collé en bas se noyait dans le
+   hero, de même bleu nuit. Refuser et Accepter portent le même traitement
+   visuel — la CAI exige un poids égal entre les deux — et rien ne se ferme
+   au clic hors de la boîte : seul un choix explicite vaut consentement. */
 (function(){
   "use strict";
 
@@ -34,6 +38,8 @@
     }
   };
 
+  var elementDeclencheur = null;
+
   function lireChoix(){
     try { return window.localStorage.getItem(CLE_CONSENTEMENT); } catch(e){ return null; }
   }
@@ -56,42 +62,53 @@
     fbq('track', 'PageView');
   }
 
-  function creerBandeau(t){
-    if (document.querySelector(".bandeau-cookies")) return;
+  function fermerModale(voile){
+    voile.remove();
+    document.body.classList.remove("voile-cookies-ouvert");
+    if (elementDeclencheur) {
+      elementDeclencheur.focus();
+      elementDeclencheur = null;
+    }
+  }
+
+  function creerModale(t){
+    if (document.querySelector(".voile-cookies")) return;
 
     var urlPolitique = URL_POLITIQUE[lang];
     var mentionPolitique = urlPolitique
       ? ' <a href="' + urlPolitique + '">' + t.politique + '</a>'
-      : ' <span class="bandeau-cookies-politique-attente">' + t.politiqueAttente + '</span>';
+      : ' <span class="modale-cookies-politique-attente">' + t.politiqueAttente + '</span>';
 
-    var bandeau = document.createElement("div");
-    bandeau.className = "bandeau-cookies";
-    bandeau.setAttribute("role", "region");
-    bandeau.setAttribute("aria-label", t.etiquette);
-    bandeau.innerHTML =
-      '<div class="bandeau-cookies-enveloppe">' +
+    var voile = document.createElement("div");
+    voile.className = "voile-cookies";
+    voile.innerHTML =
+      '<div class="modale-cookies" role="dialog" aria-modal="true" aria-label="' + t.etiquette + '" tabindex="-1">' +
+        '<span class="etiquette">' + t.etiquette + '</span>' +
         "<p>" + t.texte + mentionPolitique + "</p>" +
-        '<div class="bandeau-cookies-boutons">' +
-          '<button type="button" class="bandeau-cookies-bouton refuser">' + t.refuser + "</button>" +
-          '<button type="button" class="bandeau-cookies-bouton accepter">' + t.accepter + "</button>" +
+        '<div class="modale-cookies-boutons">' +
+          '<button type="button" class="modale-cookies-bouton refuser">' + t.refuser + "</button>" +
+          '<button type="button" class="modale-cookies-bouton accepter">' + t.accepter + "</button>" +
         "</div>" +
       "</div>";
 
-    document.body.appendChild(bandeau);
+    document.body.appendChild(voile);
+    document.body.classList.add("voile-cookies-ouvert");
+    voile.querySelector(".modale-cookies").focus();
 
-    bandeau.querySelector(".refuser").addEventListener("click", function(){
+    voile.querySelector(".refuser").addEventListener("click", function(){
       ecrireChoix("refuse");
-      bandeau.remove();
+      fermerModale(voile);
     });
-    bandeau.querySelector(".accepter").addEventListener("click", function(){
+    voile.querySelector(".accepter").addEventListener("click", function(){
       ecrireChoix("accepte");
-      bandeau.remove();
+      fermerModale(voile);
       initialiserPixelMeta();
     });
   }
 
-  function ouvrirPreferences(){
-    creerBandeau(textes[lang]);
+  function ouvrirPreferences(e){
+    if (e && e.currentTarget) { elementDeclencheur = e.currentTarget; }
+    creerModale(textes[lang]);
   }
 
   function demarrer(){
@@ -99,14 +116,14 @@
     if (choix === "accepte") {
       initialiserPixelMeta();
     } else if (choix !== "refuse") {
-      creerBandeau(textes[lang]);
+      creerModale(textes[lang]);
     }
 
     var lienPreferences = document.querySelector("[data-cookies-preferences]");
     if (lienPreferences) {
       lienPreferences.addEventListener("click", function(e){
         e.preventDefault();
-        ouvrirPreferences();
+        ouvrirPreferences(e);
       });
     }
   }

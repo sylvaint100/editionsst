@@ -373,36 +373,44 @@ h2{
   .jumelle{grid-template-columns:minmax(0,7rem) minmax(0,1fr);gap:1.75rem}
 }
 
-/* ---- Bandeau de consentement (pixel Meta) ---- */
-.bandeau-cookies{
-  position:fixed;left:0;right:0;bottom:0;z-index:1000;
-  background:var(--encre-profond);color:var(--papier);
-  border-top:1px solid var(--or);
-  box-shadow:0 -8px 24px rgba(8,20,42,.35);
+/* ---- Consentement (pixel Meta) : boîte modale ----
+   Fond assombri, boîte centrée plutôt que bandeau collé en bas : sur le
+   hero, en bleu nuit lui aussi, un bandeau de même teinte s'y noyait.
+   Refuser et Accepter portent le même traitement visuel — la CAI (Loi 25)
+   exige un poids égal entre les deux — et rien ne se ferme au clic sur
+   le fond ou à Échap : seul un choix explicite compte comme consentement. */
+body.voile-cookies-ouvert{overflow:hidden}
+.voile-cookies{
+  position:fixed;inset:0;z-index:1000;
+  background:rgba(8,20,42,.72);
+  display:flex;align-items:center;justify-content:center;
+  padding:1.5rem;
 }
-.bandeau-cookies-enveloppe{
-  width:100%;max-width:var(--mesure);margin:0 auto;padding:1.25rem 1.5rem;
-  display:flex;flex-wrap:wrap;gap:1.25rem;align-items:center;justify-content:space-between;
+.modale-cookies{
+  width:100%;max-width:28rem;
+  background:var(--papier-pur);color:var(--encre);
+  border-top:3px solid var(--or);
+  box-shadow:0 24px 64px -16px rgba(8,20,42,.5);
+  padding:2rem;
 }
-.bandeau-cookies p{margin:0;flex:1 1 26rem;font-size:.875rem;line-height:1.6;color:rgba(246,245,241,.88)}
-.bandeau-cookies a{color:var(--or-clair);text-decoration-color:var(--or)}
-.bandeau-cookies a:hover{color:var(--papier)}
-.bandeau-cookies-politique-attente{color:rgba(246,245,241,.5);font-style:italic}
-.bandeau-cookies-boutons{display:flex;gap:.75rem;flex:0 0 auto}
-.bandeau-cookies-bouton{
+.modale-cookies:focus{outline:none}
+.modale-cookies .etiquette{color:var(--or);display:block;margin-bottom:1rem}
+.modale-cookies p{margin:0 0 1.75rem;font-size:.9375rem;line-height:1.65}
+.modale-cookies a{color:var(--encre);text-decoration-color:var(--or);text-underline-offset:3px}
+.modale-cookies a:hover{color:var(--or)}
+.modale-cookies-politique-attente{color:var(--gris);font-style:italic}
+.modale-cookies-boutons{display:flex;gap:.75rem}
+.modale-cookies-bouton{
+  flex:1;
   font-family:"IBM Plex Mono",monospace;font-size:.75rem;
   letter-spacing:.09em;text-transform:uppercase;
-  padding:.8rem 1.5rem;border:1px solid var(--or);background:transparent;
-  color:var(--or-clair);cursor:pointer;transition:background .2s,color .2s;
+  padding:.85rem 1.25rem;border:1px solid var(--encre);background:transparent;
+  color:var(--encre);cursor:pointer;transition:background .2s,color .2s;
 }
-.bandeau-cookies-bouton:hover{background:var(--encre-voile)}
-.bandeau-cookies-bouton.accepter{background:var(--or);color:var(--encre-profond);font-weight:500}
-.bandeau-cookies-bouton.accepter:hover{background:var(--or-clair)}
-@media(max-width:36rem){
-  .bandeau-cookies-enveloppe{flex-direction:column;align-items:stretch}
-  .bandeau-cookies p{flex-basis:auto}
-  .bandeau-cookies-boutons{justify-content:stretch}
-  .bandeau-cookies-bouton{flex:1}
+.modale-cookies-bouton:hover{background:var(--encre);color:var(--papier)}
+@media(max-width:26rem){
+  .modale-cookies{padding:1.5rem}
+  .modale-cookies-boutons{flex-direction:column}
 }
 
 /* ---- Page légale (politique de confidentialité) ---- */

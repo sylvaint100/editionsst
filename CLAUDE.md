@@ -56,8 +56,14 @@ Les titres du catalogue mènent à ces pages via un lien dans le `<h3>`.
 
 ### Vidéo intégrée
 
-La page française de *L'écart, c'est vous.* porte une vidéo HeyGen en tête de la section
-`#livre`. C'est la **seule dépendance externe** du site en dehors de Google Fonts.
+Les deux pages d'ouvrage portent une vidéo HeyGen en tête de leur première section —
+`#livre` en français, `#book` en anglais, chacune dans sa langue. C'est la **seule
+dépendance externe** du site en dehors de Google Fonts.
+
+Les overlays graphiques sont **refaits à la main dans HeyGen Studio**, pas traduits.
+Video Translate ne reprend que la voix et la synchro labiale : le texte incrusté dans
+l'image reste dans la langue d'origine. La version anglaise est donc un projet Studio
+distinct, et non une traduction du rendu français.
 
 L'iframe livrée par le service porte `width="560" height="315"` et `frameborder` : ces
 attributs sont retirés et remplacés par `.video iframe`, qui impose `width:100%` et

@@ -187,7 +187,7 @@ h2{
   color:var(--gris);font-size:.6875rem;line-height:1.55;
 }
 .fiche dd{margin:0;color:var(--encre);font-weight:500}
-.fiche .a-completer{color:#9AA1AC;font-weight:400}
+.a-completer{color:#9AA1AC;font-weight:400}
 /* Un ISBN par format : le numéro garde le poids de la fiche, le format s'efface. */
 .fiche .mention-format{color:var(--gris);font-weight:400}
 
@@ -404,3 +404,16 @@ h2{
   .bandeau-cookies-boutons{justify-content:stretch}
   .bandeau-cookies-bouton{flex:1}
 }
+
+/* ---- Page légale (politique de confidentialité) ---- */
+.entete-page{padding:4rem 0 1rem}
+.entete-page h1{
+  font-weight:600;font-size:clamp(2rem,5vw,2.75rem);
+  letter-spacing:-.01em;margin:.75rem 0 1.25rem;
+}
+.entete-page .resume{max-width:60ch;color:var(--gris)}
+.entete-page .maj{color:var(--gris)}
+.politique h3{font-weight:600;font-size:1.125rem;margin:0 0 .85rem}
+.politique p{margin:0 0 1.25rem;max-width:62ch}
+.politique ul{margin:0 0 1.25rem;padding-left:1.25rem;max-width:62ch}
+.politique li{margin-bottom:.5rem}

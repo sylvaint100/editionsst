@@ -8,9 +8,10 @@
   var CLE_CONSENTEMENT = "editionsst-consentement-meta";
   var ID_PIXEL = "1334777188736124";
 
-  // Politique de confidentialité : aucune page n'existe encore sur le site.
-  // Renseigner l'URL ici dès qu'elle sera publiée — le lien s'activera de lui-même.
-  var URL_POLITIQUE = null;
+  var URL_POLITIQUE = {
+    fr: "/confidentialite/",
+    en: "/en/privacy/"
+  };
 
   var lang = (document.documentElement.lang || "fr").toLowerCase().indexOf("fr") === 0 ? "fr" : "en";
 
@@ -58,8 +59,9 @@
   function creerBandeau(t){
     if (document.querySelector(".bandeau-cookies")) return;
 
-    var mentionPolitique = URL_POLITIQUE
-      ? ' <a href="' + URL_POLITIQUE + '">' + t.politique + '</a>'
+    var urlPolitique = URL_POLITIQUE[lang];
+    var mentionPolitique = urlPolitique
+      ? ' <a href="' + urlPolitique + '">' + t.politique + '</a>'
       : ' <span class="bandeau-cookies-politique-attente">' + t.politiqueAttente + '</span>';
 
     var bandeau = document.createElement("div");

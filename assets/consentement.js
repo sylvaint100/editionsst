@@ -18,7 +18,7 @@
   var textes = {
     fr: {
       etiquette:"Consentement aux témoins",
-      texte:"Nous utilisons le pixel Meta (Facebook) à des fins de mesure d'audience et de publicité ciblée. Aucune donnée n'est transmise à Meta avant votre accord.",
+      texte:"Nous utilisons des témoins de Meta (Facebook) pour mesurer l'audience et personnaliser la publicité. Aucune donnée n'est transmise avant votre accord.",
       politique:"Politique de confidentialité",
       politiqueAttente:"Politique de confidentialité (à venir)",
       refuser:"Refuser",
@@ -26,7 +26,7 @@
     },
     en: {
       etiquette:"Cookie consent",
-      texte:"We use the Meta (Facebook) pixel for audience measurement and targeted advertising. No data is shared with Meta until you agree.",
+      texte:"We use Meta (Facebook) cookies to measure audience and personalize advertising. No data is shared until you agree.",
       politique:"Privacy policy",
       politiqueAttente:"Privacy policy (coming soon)",
       refuser:"Decline",

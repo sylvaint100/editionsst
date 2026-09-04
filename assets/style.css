@@ -240,6 +240,9 @@ h2{
 .pied img{height:2.5rem;width:auto;margin-bottom:1rem}
 .pied a{color:rgba(246,245,241,.62);text-decoration-color:var(--or)}
 .pied a:hover{color:var(--papier)}
+.pied .reseaux{display:flex;gap:1rem;align-items:center}
+.pied .reseaux a{text-decoration:none;display:inline-flex}
+.pied .reseaux svg{width:1.35rem;height:1.35rem}
 .pied .legal{font-family:"IBM Plex Mono",monospace;font-size:.6875rem;line-height:2;letter-spacing:.04em}
 .pied .lien-cookies{
   background:none;border:none;padding:0;margin:0;font:inherit;

@@ -74,6 +74,8 @@
     <p>Used only if you click "Accept" in the consent banner, to measure the site's audience and show targeted ads on Meta's platforms. Until you agree, no data is shared with Meta. <strong>Legal basis: your consent.</strong></p>
     <h3>Your consent choice</h3>
     <p>Whether you accept or decline, that choice is stored only in your browser's local storage — never on a server — so you aren't asked again on every visit. This technical information is strictly necessary for the banner to work and is not itself subject to consent.</p>
+    <h3>Cookie-free audience measurement (Cloudflare Web Analytics)</h3>
+    <p>Cloudflare Web Analytics measures site traffic without a cookie or any identifier that follows you between visits or across sites. Because it cannot identify you, it loads on every page without going through the consent banner — unlike the Meta pixel. <strong>Legal basis: legitimate interest</strong> in audience measurement.</p>
     <h3>Fonts (Google Fonts)</h3>
     <p>The Spectral and IBM Plex Mono fonts used on the site are served from Google's servers, which shares your IP address with Google when the page loads. <strong>Legal basis: legitimate interest</strong> in displaying the site.</p>
     <h3>Embedded video (HeyGen)</h3>
@@ -82,7 +84,7 @@
     <p>The site has no forms: contact happens through an email link. If you write to us, we receive your address and the content of your message, used only to reply.</p>
     <h3>Hosting logs</h3>
     <p>The site is hosted on GitHub Pages (GitHub, Inc. / Microsoft), which keeps standard technical logs, including IP addresses, as part of its own service. Éditions ST has no access to those logs beyond what GitHub makes available.</p>
-    <p>The site has no user accounts, no newsletter, no data-collecting forms, and no audience-measurement tool other than the Meta pixel described above.</p>
+    <p>The site has no user accounts, no newsletter, no data-collecting forms, and the only audience-measurement tools it uses are the Meta pixel and Cloudflare Web Analytics, described above.</p>
   </div>
 </section>
 
@@ -94,6 +96,7 @@
     </div>
     <ul>
       <li><strong>Meta Platforms, Inc.</strong> — measurement and advertising pixel, only after your consent.</li>
+      <li><strong>Cloudflare, Inc.</strong> — cookie-free audience measurement, no persistent identifier.</li>
       <li><strong>Google LLC</strong> — font delivery.</li>
       <li><strong>HeyGen</strong> — hosting of the embedded video, on the pages for <em>L'écart, c'est vous.</em> and <em>The Gap Is You.</em> (French and English).</li>
       <li><strong>GitHub, Inc. (Microsoft)</strong> — site hosting.</li>
@@ -178,5 +181,6 @@
 </footer>
 
 <script>document.getElementById('annee').textContent=new Date().getFullYear();</script>
+<!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "33d57bd1f9394815b605dad995699d8e"}'></script><!-- End Cloudflare Web Analytics -->
 </body>
 </html>

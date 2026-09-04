@@ -72,6 +72,8 @@
     <p>Utilisé seulement si vous cliquez « Accepter » dans le bandeau de consentement, pour mesurer l'audience du site et présenter des publicités ciblées sur les plateformes Meta. Tant que vous n'avez pas donné votre accord, aucune donnée n'est transmise à Meta. <strong>Base légale : votre consentement.</strong></p>
     <h3>Votre choix de consentement</h3>
     <p>Que vous acceptiez ou refusiez, ce choix est enregistré uniquement dans le stockage local de votre navigateur — jamais sur un serveur — pour éviter de vous le redemander à chaque visite. Cette information technique est strictement nécessaire au fonctionnement du bandeau et n'est pas elle-même soumise à consentement.</p>
+    <h3>Mesure d'audience sans témoin (Cloudflare Web Analytics)</h3>
+    <p>Cloudflare Web Analytics mesure la fréquentation du site sans témoin ni identifiant qui vous suit d'une visite à l'autre ou d'un site à l'autre. Parce qu'elle ne permet pas de vous identifier, elle se charge sur toutes les pages sans passer par le bandeau de consentement — contrairement au pixel Meta. <strong>Base légale : intérêt légitime</strong> lié à la mesure d'audience.</p>
     <h3>Polices de caractères (Google Fonts)</h3>
     <p>Les polices Spectral et IBM Plex Mono utilisées sur le site sont livrées depuis les serveurs de Google, ce qui transmet votre adresse IP à Google au chargement de la page. <strong>Base légale : intérêt légitime</strong> lié à l'affichage du site.</p>
     <h3>Vidéo intégrée (HeyGen)</h3>
@@ -80,7 +82,7 @@
     <p>Le site ne comporte aucun formulaire : le contact se fait par lien courriel. Si vous nous écrivez, nous recevons votre adresse et le contenu de votre message, utilisés seulement pour vous répondre.</p>
     <h3>Journaux d'hébergement</h3>
     <p>Le site est hébergé par GitHub Pages (GitHub, Inc. / Microsoft), qui conserve des journaux techniques standards, dont l'adresse IP, dans le cadre de son propre service. Éditions ST n'a pas accès à ces journaux au-delà de ce que GitHub met à disposition.</p>
-    <p>Le site ne comporte ni compte utilisateur, ni infolettre, ni formulaire de collecte, ni outil de mesure d'audience autre que le pixel Meta décrit ci-dessus.</p>
+    <p>Le site ne comporte ni compte utilisateur, ni infolettre, ni formulaire de collecte, et les seuls outils de mesure d'audience utilisés sont le pixel Meta et Cloudflare Web Analytics, décrits ci-dessus.</p>
   </div>
 </section>
 
@@ -92,6 +94,7 @@
     </div>
     <ul>
       <li><strong>Meta Platforms, Inc.</strong> — pixel de mesure et de publicité, uniquement après votre consentement.</li>
+      <li><strong>Cloudflare, Inc.</strong> — mesure d'audience sans témoin ni identifiant persistant.</li>
       <li><strong>Google LLC</strong> — livraison des polices de caractères.</li>
       <li><strong>HeyGen</strong> — hébergement de la vidéo intégrée, pages de <em>L'écart, c'est vous.</em> et de <em>The Gap Is You.</em> (française et anglaise).</li>
       <li><strong>GitHub, Inc. (Microsoft)</strong> — hébergement du site.</li>
@@ -176,5 +179,6 @@
 </footer>
 
 <script>document.getElementById('annee').textContent=new Date().getFullYear();</script>
+<!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "33d57bd1f9394815b605dad995699d8e"}'></script><!-- End Cloudflare Web Analytics -->
 </body>
 </html>

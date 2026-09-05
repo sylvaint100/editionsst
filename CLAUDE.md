@@ -54,6 +54,44 @@ papier, on retrouve `.achat`.
 
 Les titres du catalogue mènent à ces pages via un lien dans le `<h3>`.
 
+### Infolettre
+
+Un formulaire EmailOctopus figure sur les **six pages de contenu** — les deux catalogues et
+les quatre pages d'ouvrage. Les deux politiques de confidentialité en sont exclues.
+
+Le formulaire est **injecté par leur script**, pas présent dans le HTML servi. Ses champs :
+
+| Champ | `name` | Type |
+|-------|--------|------|
+| Prénom (requis) | `field_1` | text |
+| Nom | `field_2` | text |
+| Courriel (requis) | `field_0` | email |
+| Langue | `field_3` | hidden |
+
+`assets/infolettre.js` renseigne `field_3` avec `fr` ou `en`, tiré du `lang` de la page, pour
+segmenter les envois. Il le fait par `MutationObserver` parce que le champ n'existe pas au
+chargement — **le script d'EmailOctopus ne lit ni paramètre d'URL ni attribut `data-`**, il
+n'y avait donc pas moyen de pré-remplir dans le HTML. Aucune configuration par page : une
+nouvelle page équipée du formulaire et du script est segmentée d'office.
+
+**Le script d'EmailOctopus est mis en cache 24 heures** (`max-age=86400`). Une modification
+faite dans leur interface peut donc rester invisible une journée dans un navigateur qui a
+déjà chargé le formulaire. Avant de conclure à un bogue d'intégration, tester avec une
+chaîne de contournement (`?cb=…` ajoutée au `src`) — et la retirer après.
+
+Le formulaire pèse **227 ko** et charge **reCAPTCHA de Google**. EmailOctopus n'offre pas
+de version en HTML pur : leur point de soumission n'est pas documenté et exige un jeton
+reCAPTCHA. C'est le coût du service, il n'y a pas d'échappatoire propre.
+
+Les libellés du formulaire sont **bilingues, anglais d'abord** (« Subscribe · S'inscrire »),
+décision de l'éditeur : un anglophone qui ne voit pas sa langue s'en va, un francophone
+cherche. Le plan ne permet qu'un seul formulaire, d'où ce compromis. Le texte qui porte le
+sens — titre de section et promesse — est dans la page, donc unilingue et correct.
+
+Les deux politiques de confidentialité décrivent cette collecte. **Toute modification du
+formulaire doit s'y refléter** : elles nomment les quatre champs, EmailOctopus, reCAPTCHA,
+et le fait que les données sortent du Québec.
+
 ### Vidéo intégrée
 
 Les deux pages d'ouvrage portent une vidéo HeyGen en tête de leur première section —

@@ -56,6 +56,13 @@ Les titres du catalogue mènent à ces pages via un lien dans le `<h3>`.
 
 ### Infolettre
 
+**Exception à la convention française : l'ancre publique.** La section porte
+`id="infolettre"` sur les pages françaises et `id="newsletter"` sur les anglaises, parce
+que cet identifiant devient une **URL diffusée aux lecteurs** — `…/en/#newsletter`. La
+classe reste `.infolettre` partout, elle : c'est elle qui porte le style, et elle n'est
+jamais visible. Règle générale : les classes suivent le français, les ancres publiques
+suivent la langue de la page.
+
 Un formulaire EmailOctopus figure sur les **six pages de contenu** — les deux catalogues et
 les quatre pages d'ouvrage. Les deux politiques de confidentialité en sont exclues.
 

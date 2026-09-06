@@ -115,6 +115,9 @@ a{color:inherit}
 .bouton.vide:hover{background:rgba(184,145,43,.14)}
 
 /* ---- Sections ---- */
+/* Le bandeau est collant et haut de 96px : sans ce décalage, arriver par une
+   ancre place le haut de la section sous le bandeau. */
+section[id]{scroll-margin-top:6.5rem}
 .section{padding:5.5rem 0}
 .section + .section{border-top:1px solid var(--encre-voile)}
 .titre-section{
@@ -233,6 +236,47 @@ h2{
 .coordonnees span{display:block;color:var(--gris);font-size:.6875rem;letter-spacing:.1em;text-transform:uppercase;margin-top:1.25rem}
 .coordonnees span:first-child{margin-top:0}
 @media(max-width:46rem){.maison{grid-template-columns:1fr;gap:2.5rem}}
+
+/* ---- Offre du guide gratuit ---------------------------------------------
+   Bloc volontairement plus appuyé que le reste du site : fond d'encre,
+   pastille dorée, appel à l'action plein. C'est la seule pièce du site dont
+   le but est la conversion, pas la consultation. */
+.gratuit{background:var(--encre);color:var(--papier);padding:4.5rem 0}
+.gratuit .enveloppe{
+  display:grid;grid-template-columns:minmax(0,15rem) minmax(0,1fr);
+  gap:3.5rem;align-items:center;
+}
+.gratuit .couverture-guide{margin:0}
+.gratuit .couverture-guide img{
+  width:100%;height:auto;display:block;
+  box-shadow:0 2px 6px rgba(0,0,0,.30),0 26px 52px -18px rgba(0,0,0,.60);
+}
+.pastille{
+  display:inline-block;font-family:"IBM Plex Mono",monospace;
+  font-size:.6875rem;letter-spacing:.16em;text-transform:uppercase;font-weight:500;
+  color:var(--encre-profond);background:var(--or);padding:.4rem .85rem;margin-bottom:1.25rem;
+}
+.gratuit h2{color:var(--papier);font-size:clamp(1.6rem,3.4vw,2.25rem);margin:0 0 .5rem}
+.gratuit .sous-titre{color:var(--or-clair);font-style:normal;margin:0 0 1.5rem}
+.gratuit p{color:rgba(246,245,241,.82);max-width:56ch;margin:0 0 1.15rem}
+.gratuit .accroche{color:var(--papier);font-size:1.1875rem;line-height:1.6}
+.gratuit .cadeaux{
+  font-family:"IBM Plex Mono",monospace;font-size:.75rem;letter-spacing:.06em;
+  color:var(--or-clair);border-left:2px solid var(--or);padding-left:1rem;
+  margin:0 0 2rem;line-height:1.9;
+}
+.gratuit .actions{margin-top:.5rem}
+.gratuit .mention{font-size:.8125rem;color:rgba(246,245,241,.6);font-style:italic;margin:1.25rem 0 0}
+@media(max-width:52rem){
+  .gratuit .enveloppe{grid-template-columns:1fr;gap:2.5rem}
+  .gratuit .couverture-guide{max-width:13rem}
+}
+
+/* L'offre rappelée au-dessus du formulaire lui-même. */
+.infolettre .offre{
+  border-left:2px solid var(--or);padding-left:1.15rem;margin:0 0 1.75rem;
+}
+.infolettre .offre strong{color:var(--encre)}
 
 /* ---- Infolettre ---------------------------------------------------------
    Le script du fournisseur injecte son propre balisage et sa propre mise en

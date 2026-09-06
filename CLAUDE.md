@@ -54,6 +54,21 @@ papier, on retrouve `.achat`.
 
 Les titres du catalogue mènent à ces pages via un lien dans le `<h3>`.
 
+### Le guide gratuit, offert contre une adresse
+
+Une section `.gratuit` (`#guide`) figure sur les **deux pages de catalogue**, juste avant
+le formulaire. C'est la seule pièce du site dont le but est la conversion et non la
+consultation : fond d'encre, pastille dorée, appel à l'action plein. Elle est volontairement
+plus appuyée que le reste, et son bouton mène à l'ancre du formulaire de la même page.
+
+L'argumentaire est repris **mot pour mot des quatrièmes de couverture des guides**, pas
+rédigé pour l'occasion. Les couvertures d'illustration sont extraites de la page 1 des PDF.
+
+La promesse est reprise au-dessus du formulaire sur les **six pages**, dans un `.offre`.
+**Cette promesse engage** : si la séquence EmailOctopus n'envoie pas le guide après
+confirmation, le site ment à ses visiteurs. Les deux politiques de confidentialité le
+mentionnent aussi.
+
 ### Infolettre
 
 **Exception à la convention française : l'ancre publique.** La section porte

@@ -64,23 +64,31 @@ plus appuyée que le reste, et son bouton mène à l'ancre du formulaire de la m
 L'argumentaire est repris **mot pour mot des quatrièmes de couverture des guides**, pas
 rédigé pour l'occasion.
 
-Les illustrations sont les **maquettes en volume fournies par l'éditeur** (`Couverture/*3D*.png`
-sur le Drive), recadrées au contenu et **aplaties sur `--papier`**, avec 5 % de marge : 2 100 ko
-de PNG deviennent 230 ko de JPEG. Elles se posent donc comme une plaque claire dans le
-bandeau sombre, et `.gratuit .couverture-guide img` porte une ombre CSS — le fichier étant
-maintenant rectangulaire, l'ombre suit sa forme.
+Les illustrations sont les **maquettes en volume fournies par l'éditeur**
+(`Couverture/*3D*.png` sur le Drive), recadrées au contenu et servies en
+**WebP à canal alpha** : 2 100 ko de PNG deviennent 225 ko. Le livre est détouré,
+le fond est celui de la section, et `.gratuit .couverture-guide img` n'applique
+**aucune ombre CSS** — elle dessinerait un rectangle derrière un livre en
+perspective, et la maquette porte déjà la sienne.
 
-**Ne pas les réaplatir sur `--encre`.** C'était le premier choix, et il produisait le défaut
-signalé le 6 septembre 2026 : un liseré clair flottant sous le livre. Ces maquettes sont
-rendues pour un fond clair et portent un **contour blanc opaque** le long de leur
-silhouette — pas un artefact de transparence : dans la moitié basse du PNG on compte
-96 510 pixels clairs opaques contre 2 308 semi-transparents. Sur l'encre, la couverture
-(bleu nuit elle aussi) se fondait dans le fond et seul ce contour restait visible. Le retirer
-par érosion du masque alpha fonctionne, mais le livre perd alors son arête basse et bave
-dans le fond : c'est pire. Le fond clair est la seule issue propre.
+**Ne pas les aplatir, ni sur `--encre` ni sur `--papier`.** Les deux ont été
+essayées le 6 septembre 2026 et les deux ont échoué :
 
-C'est la différence avec les `couverture-*-3d.jpg` des pages d'ouvrage, fabriquées ici même
-et donc aplaties sur `--encre` pour le hero. Les deux jeux ne suivent pas la même règle.
+- Sur `--encre`, le JPEG produisait un halo de compression autour de la
+  silhouette — des blocs bleuâtres bien visibles sur l'aplat sombre, là où la
+  couverture est la plus foncée. C'est le « drôle d'effet de bleu dans le bas ».
+- Sur `--papier`, le fichier redevient un rectangle blanc franc dans le bandeau
+  bleu nuit. Vu comme un défaut de transparence, à juste titre.
+
+Ces maquettes portent un **liseré clair opaque** le long de leur silhouette
+(dans la moitié basse du PNG : 96 510 pixels clairs opaques contre 2 308
+semi-transparents). Ce liseré n'est pas un artefact et ne doit pas être retiré :
+à la taille d'affichage (240 px) il fait l'arête de tranche du livre. L'éroder
+du masque alpha fait perdre au livre son arête basse.
+
+C'est la différence avec les `couverture-*-3d.jpg` des pages d'ouvrage,
+fabriquées ici même et aplaties sur `--encre` pour le hero. Les deux jeux ne
+suivent pas la même règle.
 
 La promesse est reprise au-dessus du formulaire sur les **six pages**, dans un `.offre`, et
 les deux politiques de confidentialité la mentionnent.

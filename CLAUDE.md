@@ -261,16 +261,16 @@ la police du lettrage n'est pas identifiée avec certitude.
   en USD affiché dans KDP avant la sortie ne signalait donc pas une absence de distribution.
 - Books.by ne vend que du **broché** — ni relié, ni numérique, au 28 août 2026. Les fiches
   annoncent pourtant trois formats : c'est Amazon qui porte le relié et le numérique.
-- **Le canal direct devançait Amazon.** C'est encore vrai pour *The Gap Is You.*, dont la
-  note le dit et qu'il faudra réviser après le **6 septembre 2026**. *L'écart, c'est vous.*
-  est paru : sa note est revenue au texte générique, et son bouton Amazon ne dit plus
-  « précommander ».
+- **Les quatre ouvrages sont parus.** Plus aucune mention de précommande sur le site : les
+  notes d'achat portent toutes le texte générique et les boutons Amazon disent simplement
+  « Amazon ». *The Gap Is You.* est sorti le 6 septembre 2026, broché et relié « In Stock »
+  sur amazon.com comme sur amazon.ca, la fiche Kindle reliant bien les trois formats.
 - Les quatre liens Amazon en place, tous vérifiés sur la fiche produit le 27 août 2026 :
 
   | Ouvrage | ASIN | Note |
   |---------|------|------|
   | *L'écart, c'est vous.* | `B0HFWV11BX` | prévente Kindle, Éditions ST, 30 août 2026 |
-  | *The Gap Is You.* | `B0HGN9P6RV` | prévente Kindle, ST Publishing, 6 septembre 2026 |
+  | *The Gap Is You.* | `B0HGN9P6RV` | Kindle, ST Publishing, paru le 6 septembre 2026 |
   | *L'IA en Action* | `B0FLF2NHRM` | Kindle, paru le 5 août 2025 |
   | *AI in Action* | `B0FLF4T1T8` | broché, paru le 6 août 2025 |
 

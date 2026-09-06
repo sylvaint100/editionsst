@@ -247,10 +247,9 @@ h2{
   gap:3.5rem;align-items:center;
 }
 .gratuit .couverture-guide{margin:0}
-.gratuit .couverture-guide img{
-  width:100%;height:auto;display:block;
-  box-shadow:0 2px 6px rgba(0,0,0,.30),0 26px 52px -18px rgba(0,0,0,.60);
-}
+/* La maquette en volume porte sa propre ombre et n'est pas rectangulaire :
+   pas d'ombre CSS, qui dessinerait un rectangle derrière le livre. */
+.gratuit .couverture-guide img{width:100%;height:auto;display:block}
 .pastille{
   display:inline-block;font-family:"IBM Plex Mono",monospace;
   font-size:.6875rem;letter-spacing:.16em;text-transform:uppercase;font-weight:500;

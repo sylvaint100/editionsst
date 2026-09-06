@@ -62,7 +62,13 @@ consultation : fond d'encre, pastille dorée, appel à l'action plein. Elle est 
 plus appuyée que le reste, et son bouton mène à l'ancre du formulaire de la même page.
 
 L'argumentaire est repris **mot pour mot des quatrièmes de couverture des guides**, pas
-rédigé pour l'occasion. Les couvertures d'illustration sont extraites de la page 1 des PDF.
+rédigé pour l'occasion.
+
+Les illustrations sont les **maquettes en volume fournies par l'éditeur** (`Couverture/*3D*.png`
+sur le Drive), recadrées au contenu et **aplaties sur `--encre`** : 2 100 ko de PNG
+deviennent 140 ko de JPEG. Elles ne peuvent donc paraître que sur le fond bleu nuit de la
+section. Elles portent déjà leur ombre — `.gratuit .couverture-guide img` n'applique
+**aucune ombre CSS**, qui dessinerait un rectangle derrière un livre en perspective.
 
 La promesse est reprise au-dessus du formulaire sur les **six pages**, dans un `.offre`.
 **Cette promesse engage** : si la séquence EmailOctopus n'envoie pas le guide après

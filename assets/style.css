@@ -247,9 +247,15 @@ h2{
   gap:3.5rem;align-items:center;
 }
 .gratuit .couverture-guide{margin:0}
-/* La maquette en volume porte sa propre ombre et n'est pas rectangulaire :
-   pas d'ombre CSS, qui dessinerait un rectangle derrière le livre. */
-.gratuit .couverture-guide img{width:100%;height:auto;display:block}
+/* La maquette est rendue pour un fond clair : elle porte un liseré blanc le
+   long de sa silhouette. Sur l'encre, ce liseré flottait tout seul, la
+   couverture étant elle-même bleu nuit. Le fichier est donc aplati sur
+   --papier et posé comme une plaque dans le bandeau sombre. Ne pas le
+   réaplatir sur --encre : le liseré reviendrait. */
+.gratuit .couverture-guide img{
+  width:100%;height:auto;display:block;
+  box-shadow:0 1.25rem 2.5rem rgba(0,0,0,.35);
+}
 .pastille{
   display:inline-block;font-family:"IBM Plex Mono",monospace;
   font-size:.6875rem;letter-spacing:.16em;text-transform:uppercase;font-weight:500;

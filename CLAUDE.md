@@ -65,10 +65,22 @@ L'argumentaire est repris **mot pour mot des quatrièmes de couverture des guide
 rédigé pour l'occasion.
 
 Les illustrations sont les **maquettes en volume fournies par l'éditeur** (`Couverture/*3D*.png`
-sur le Drive), recadrées au contenu et **aplaties sur `--encre`** : 2 100 ko de PNG
-deviennent 140 ko de JPEG. Elles ne peuvent donc paraître que sur le fond bleu nuit de la
-section. Elles portent déjà leur ombre — `.gratuit .couverture-guide img` n'applique
-**aucune ombre CSS**, qui dessinerait un rectangle derrière un livre en perspective.
+sur le Drive), recadrées au contenu et **aplaties sur `--papier`**, avec 5 % de marge : 2 100 ko
+de PNG deviennent 230 ko de JPEG. Elles se posent donc comme une plaque claire dans le
+bandeau sombre, et `.gratuit .couverture-guide img` porte une ombre CSS — le fichier étant
+maintenant rectangulaire, l'ombre suit sa forme.
+
+**Ne pas les réaplatir sur `--encre`.** C'était le premier choix, et il produisait le défaut
+signalé le 6 septembre 2026 : un liseré clair flottant sous le livre. Ces maquettes sont
+rendues pour un fond clair et portent un **contour blanc opaque** le long de leur
+silhouette — pas un artefact de transparence : dans la moitié basse du PNG on compte
+96 510 pixels clairs opaques contre 2 308 semi-transparents. Sur l'encre, la couverture
+(bleu nuit elle aussi) se fondait dans le fond et seul ce contour restait visible. Le retirer
+par érosion du masque alpha fonctionne, mais le livre perd alors son arête basse et bave
+dans le fond : c'est pire. Le fond clair est la seule issue propre.
+
+C'est la différence avec les `couverture-*-3d.jpg` des pages d'ouvrage, fabriquées ici même
+et donc aplaties sur `--encre` pour le hero. Les deux jeux ne suivent pas la même règle.
 
 La promesse est reprise au-dessus du formulaire sur les **six pages**, dans un `.offre`, et
 les deux politiques de confidentialité la mentionnent.

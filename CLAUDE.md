@@ -75,7 +75,16 @@ Le formulaire est **injecté par leur script**, pas présent dans le HTML servi.
 | Courriel (requis) | `field_0` | email |
 | Langue | `field_3` | hidden |
 
-`assets/infolettre.js` renseigne `field_3` avec `fr` ou `en`, tiré du `lang` de la page, pour
+`assets/infolettre.js` fait deux choses au formulaire, dès qu'il apparaît.
+
+Il **rend la case de consentement obligatoire**. EmailOctopus l'affiche mais n'offre aucun
+réglage pour l'exiger : sans cela, on peut s'inscrire sans cocher, et la case ne vaut plus
+consentement. Le formulaire poste par un bouton `submit` natif et ne désactive pas la
+validation du navigateur (`noValidate` est faux), donc poser `required` suffit à bloquer
+l'envoi avant même que leur script n'intervienne. **Ne pas retirer cette ligne** en croyant
+à une redondance : rien côté EmailOctopus ne la remplace.
+
+Il renseigne aussi `field_3` avec `fr` ou `en`, tiré du `lang` de la page, pour
 segmenter les envois. Il le fait par `MutationObserver` parce que le champ n'existe pas au
 chargement — **le script d'EmailOctopus ne lit ni paramètre d'URL ni attribut `data-`**, il
 n'y avait donc pas moyen de pré-remplir dans le HTML. Aucune configuration par page : une

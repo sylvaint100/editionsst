@@ -70,10 +70,13 @@ deviennent 140 ko de JPEG. Elles ne peuvent donc paraître que sur le fond bleu 
 section. Elles portent déjà leur ombre — `.gratuit .couverture-guide img` n'applique
 **aucune ombre CSS**, qui dessinerait un rectangle derrière un livre en perspective.
 
-La promesse est reprise au-dessus du formulaire sur les **six pages**, dans un `.offre`.
-**Cette promesse engage** : si la séquence EmailOctopus n'envoie pas le guide après
-confirmation, le site ment à ses visiteurs. Les deux politiques de confidentialité le
-mentionnent aussi.
+La promesse est reprise au-dessus du formulaire sur les **six pages**, dans un `.offre`, et
+les deux politiques de confidentialité la mentionnent.
+
+**La chaîne a été vérifiée de bout en bout le 6 septembre 2026** : inscription, courriel de
+confirmation, livraison du guide. Elle fonctionne. Toute modification du formulaire, de la
+promesse ou de la séquence EmailOctopus doit être retestée en entier — c'est la seule
+partie du site qu'aucune vérification automatique ne couvre.
 
 ### Infolettre
 

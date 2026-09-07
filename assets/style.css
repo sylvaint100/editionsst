@@ -241,7 +241,7 @@ h2{
    Bloc volontairement plus appuyé que le reste du site : fond d'encre,
    pastille dorée, appel à l'action plein. C'est la seule pièce du site dont
    le but est la conversion, pas la consultation. */
-.gratuit{background:var(--encre);color:var(--papier);padding:4.5rem 0}
+.gratuit{background:var(--encre);color:var(--papier);padding:4.5rem 0;transition:box-shadow .6s ease-out}
 .gratuit .enveloppe{
   display:grid;grid-template-columns:minmax(0,15rem) minmax(0,1fr);
   gap:3.5rem;align-items:center;
@@ -499,3 +499,44 @@ body.voile-cookies-ouvert{overflow:hidden}
 .politique p{margin:0 0 1.25rem;max-width:62ch}
 .politique ul{margin:0 0 1.25rem;padding-left:1.25rem;max-width:62ch}
 .politique li{margin-bottom:.5rem}
+
+/* ---- Promo du guide gratuit ----
+   Boîte flottante, pas une modale : pas de fond assombri, le défilement
+   n'est jamais bloqué. Ancrée en coin plutôt que centrée pour ne jamais
+   se confondre avec la boîte de consentement (assets/promo.js s'assure
+   d'ailleurs qu'elle n'apparaît jamais tant que ce choix n'est pas fait). */
+.promo-guide{
+  position:fixed;right:1.5rem;bottom:1.5rem;z-index:900;
+  width:100%;max-width:21rem;
+  background:var(--encre);color:var(--papier);
+  border-top:3px solid var(--or);
+  box-shadow:0 20px 50px -12px rgba(8,20,42,.45);
+  padding:1.5rem;
+}
+.promo-guide:focus{outline:none}
+.promo-guide .pastille{margin-bottom:.85rem}
+.promo-guide-fermer{
+  position:absolute;top:.6rem;right:.6rem;
+  width:2rem;height:2rem;display:flex;align-items:center;justify-content:center;
+  background:transparent;border:0;color:rgba(246,245,241,.55);
+  font-size:1.375rem;line-height:1;cursor:pointer;padding:0;
+  transition:color .2s;
+}
+.promo-guide-fermer:hover{color:var(--papier)}
+.promo-guide-titre{font-weight:600;font-size:1.0625rem;line-height:1.4;margin:0 0 .5rem;color:var(--papier)}
+.promo-guide-texte{font-size:.9375rem;line-height:1.6;color:rgba(246,245,241,.82);margin:0 0 1.25rem}
+.promo-guide-action{
+  display:block;width:100%;text-align:center;appearance:none;
+  font-family:"IBM Plex Mono",monospace;font-size:.75rem;
+  letter-spacing:.1em;text-transform:uppercase;font-weight:500;
+  padding:.85rem 1.5rem;border:1px solid var(--or);background:var(--or);
+  color:var(--encre-profond);cursor:pointer;transition:background .2s;
+}
+.promo-guide-action:hover{background:var(--or-clair)}
+@media(max-width:30rem){
+  .promo-guide{left:.75rem;right:.75rem;bottom:.75rem;width:auto;max-width:none;padding:1.25rem}
+}
+
+/* Bref surlignage au clic, quand la promo fait défiler jusqu'au bloc
+   (transition posée sur .gratuit lui-même, voir plus haut). */
+.gratuit.mis-en-evidence{box-shadow:inset 0 0 0 3px var(--or)}

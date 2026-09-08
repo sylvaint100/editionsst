@@ -192,6 +192,20 @@ Chaque page garde la même ossature : bandeau collant → hero → `#catalogue` 
 `#maison` (`#imprint` côté anglais, qui contient `#contact`) → pied. Les liens du menu sont des
 ancres vers ces identifiants.
 
+### Réseaux sociaux du pied
+
+Le bloc `.reseaux` est répété **à l'identique sur les huit pages** — les six pages de
+contenu et les deux politiques de confidentialité. Il n'y a pas d'inclusion : ajouter ou
+retirer un réseau demande de toucher les huit fichiers, sinon le pied diverge d'une page
+à l'autre. Ordre en place : Facebook, Instagram, TikTok, YouTube, LinkedIn.
+
+Les icônes sont des `<path>` uniques en `viewBox="0 0 24 24"`, `fill="currentColor"`,
+dimensionnées par `.pied .reseaux svg`. Les noms de marque ne se traduisent pas : les
+`aria-label` et `title` sont identiques des deux côtés.
+
+Le nœud `Organization` du JSON-LD ne porte **pas** de `sameAs` vers ces comptes — les
+`sameAs` du fichier sont ceux des `Book`, et pointent vers Books.by et Amazon.
+
 ### Bascule de langue
 
 Le lien `.langue` (« English » / « Français ») est placé **dans le bandeau mais hors du

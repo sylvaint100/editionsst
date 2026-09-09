@@ -500,6 +500,13 @@ body.voile-cookies-ouvert{overflow:hidden}
 .politique ul{margin:0 0 1.25rem;padding-left:1.25rem;max-width:62ch}
 .politique li{margin-bottom:.5rem}
 
+/* ---- Page de remerciement (bilingue, un seul écran) ----
+   Le forfait EmailOctopus de l'éditeur n'admet qu'un formulaire, donc
+   qu'une seule redirection possible : la page sert l'anglais et le
+   français côte à côte plutôt que deux pages distinctes. */
+.gratuit .bloc-langue .etiquette{color:var(--or-clair);display:block;margin-bottom:.5rem}
+.gratuit .bloc-langue+.bloc-langue{margin-top:1.5rem;padding-top:1.5rem;border-top:1px solid rgba(246,245,241,.14)}
+
 /* ---- Promo du guide gratuit ----
    Boîte flottante, pas une modale : pas de fond assombri, le défilement
    n'est jamais bloqué. Ancrée en coin plutôt que centrée pour ne jamais

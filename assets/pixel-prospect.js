@@ -1,4 +1,4 @@
-/* Événement Meta « Lead », pages /merci/ et /en/thank-you/ seulement. Le
+/* Événement Meta « Lead », page /merci/ seulement. Le
    pixel n'est initialisé qu'après consentement (assets/consentement.js) :
    plutôt que dupliquer sa logique de consentement ici, on attend simplement
    que window.fbq existe. Il n'existe que si le choix stocké est « accepte »

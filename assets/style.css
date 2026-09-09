@@ -506,6 +506,18 @@ body.voile-cookies-ouvert{overflow:hidden}
    français côte à côte plutôt que deux pages distinctes. */
 .gratuit .bloc-langue .etiquette{color:var(--or-clair);display:block;margin-bottom:.5rem}
 .gratuit .bloc-langue+.bloc-langue{margin-top:1.5rem;padding-top:1.5rem;border-top:1px solid rgba(246,245,241,.14)}
+/* Duo de maquettes, anglaise puis française : les deux fichiers n'ont pas
+   le même ratio (l'anglaise est recadrée plus courte), donc on les cale
+   sur une hauteur commune plutôt que sur une largeur, avec un léger
+   chevauchement pour une mise en scène plutôt que deux images juxtaposées.
+   Pas d'ombre CSS ici non plus — même raison que pour la maquette seule. */
+.gratuit .couverture-guide.duo-couvertures{display:flex;align-items:flex-end;justify-content:center}
+.gratuit .couverture-guide.duo-couvertures img{width:auto;height:12rem}
+.gratuit .couverture-guide.duo-couvertures img:first-child{position:relative;z-index:1;margin-right:-1.75rem}
+@media(max-width:52rem){
+  .gratuit .couverture-guide.duo-couvertures img{height:9.5rem}
+  .gratuit .couverture-guide.duo-couvertures img:first-child{margin-right:-1.25rem}
+}
 
 /* ---- Promo du guide gratuit ----
    Boîte flottante, pas une modale : pas de fond assombri, le défilement

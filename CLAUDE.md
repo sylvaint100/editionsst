@@ -43,8 +43,16 @@ Deux pages de vente s'ajoutent aux deux pages de catalogue :
 | `lecart-cest-vous/index.html` | *L'écart, c'est vous.* | amazon.ca |
 | `en/the-gap-is-you/index.html` | *The Gap Is You.* | amazon.com |
 
-Ossature : bandeau → hero à deux colonnes → `#livre` → `#formats` → `#auteur` → édition dans
-l'autre langue → appel final → pied. Elles réutilisent `assets/style.css` ; le CSS qui leur
+Ossature : bandeau → hero à deux colonnes → `#livre` → `#contenu` (`#inside` en anglais) →
+`#formats` → `#auteur` → édition dans l'autre langue → appel final → pied.
+
+`#contenu` / `#inside` reprend la **description détaillée fournie par l'éditeur**
+(`*_description.md`, 14 septembre 2026), découpée en `.rubrique` : architecture, public,
+quatre archétypes, trois niveaux de lecture, parti pris éditorial, questions du livre.
+Deux écarts volontaires avec la source : la version anglaise ne dit plus « in Quebec and
+French-speaking regions » (ST Publishing vise surtout des lecteurs américains), et la
+numérotation « annexes B.1 à B.4 » est omise, faute de concorder avec les cinq annexes
+connues. Elles réutilisent `assets/style.css` ; le CSS qui leur
 est propre est groupé en fin de feuille sous « Page d'ouvrage ».
 
 **Dans le hero, les boutons d'achat sont des `.bouton`, pas des `.achat`.** `.achat` est

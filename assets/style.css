@@ -178,6 +178,9 @@ h2{
   font-family:"IBM Plex Mono",monospace;
   font-size:.75rem;
 }
+/* Sous un titre de section (pages d'ouvrage), le filet du titre suffit :
+   la bordure de la fiche ferait un second trait juste en dessous. */
+.titre-section + .fiche{border-top:0;padding-top:0}
 .fiche div{
   display:flex;gap:1rem;
   padding:.55rem 0;
@@ -422,6 +425,38 @@ h2{
 .pilier .etiquette{color:var(--or);display:block;margin-bottom:.75rem}
 .pilier p{margin:0;font-size:.9375rem;color:var(--gris);line-height:1.65}
 
+/* ---- Dans le livre : la description détaillée ----
+   Une rubrique par thème, titre court à gauche et texte à droite, à la
+   manière des entrées d'une notice. Les tuiles reprennent le carrelage
+   des piliers ; .cas en est la variante à deux colonnes. */
+.rubrique{
+  display:grid;grid-template-columns:minmax(0,13rem) minmax(0,1fr);
+  gap:2.5rem;padding:2.75rem 0;
+}
+.titre-section + .rubrique{padding-top:0}
+.rubrique + .rubrique{border-top:1px solid var(--encre-voile)}
+.rubrique h3{font-weight:600;font-size:1.1875rem;line-height:1.35;margin:0}
+.rubrique h4{font-weight:600;font-size:1.0625rem;margin:2rem 0 .5rem}
+.rubrique .texte > p{margin:0 0 1.5rem;max-width:60ch}
+.rubrique .texte > :last-child{margin-bottom:0}
+.rubrique .piliers,.rubrique .cas{margin:0 0 1.5rem}
+.cas{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--encre-voile)}
+.etapes{list-style:none;margin:0 0 1.5rem;padding:0;display:flex;flex-wrap:wrap;gap:.5rem}
+.etapes li{
+  font-family:"IBM Plex Mono",monospace;font-size:.6875rem;
+  letter-spacing:.12em;text-transform:uppercase;font-weight:500;
+  padding:.4rem .75rem;border:1px solid var(--encre-voile);background:var(--papier-pur);
+}
+.etapes li::before{content:counter(list-item) " ";color:var(--or)}
+.questions{list-style:none;margin:0 0 2rem;padding:0;max-width:60ch}
+.questions li{padding:.85rem 0;border-bottom:1px dotted var(--encre-voile)}
+.questions li:first-child{padding-top:0}
+.questions strong{font-weight:600}
+.rubrique .ambition{
+  border-left:2px solid var(--or);padding-left:1.15rem;
+  font-size:1.1875rem;line-height:1.6;
+}
+
 /* L'auteur : portrait et notice */
 .auteur{display:grid;grid-template-columns:minmax(0,10rem) minmax(0,1fr);gap:2.5rem;align-items:start}
 .auteur img{width:100%;height:auto;display:block;
@@ -442,6 +477,8 @@ h2{
   .hero-ouvrage .enveloppe{grid-template-columns:1fr;gap:3rem}
   .volume{max-width:14rem}
   .piliers{grid-template-columns:1fr}
+  .rubrique{grid-template-columns:1fr;gap:1.25rem}
+  .cas{grid-template-columns:1fr}
   .auteur{grid-template-columns:1fr;gap:2rem}
   .auteur img{max-width:9rem}
   .jumelle{grid-template-columns:minmax(0,7rem) minmax(0,1fr);gap:1.75rem}

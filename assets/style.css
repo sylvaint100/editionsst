@@ -270,9 +270,26 @@ h2{
 }
 .gratuit .actions{margin-top:.5rem}
 .gratuit .mention{font-size:.8125rem;color:rgba(246,245,241,.6);font-style:italic;margin:1.25rem 0 0}
+/* Bouton dupliqué du premier écran mobile (voir plus bas) : cette version
+   plein écran, entre badge et titre, ne sert à rien tant que l'image et le
+   texte tiennent en dessous — masqué par défaut. */
+.gratuit .cta-mobile{display:none}
 @media(max-width:52rem){
   .gratuit .enveloppe{grid-template-columns:1fr;gap:2.5rem}
   .gratuit .couverture-guide{max-width:13rem}
+}
+/* Premier écran mobile (trafic publicitaire arrivant sur #guide) : le
+   formulaire n'apparaissait qu'après plusieurs écrans — grande image,
+   badge, titre, longs paragraphes. On resserre juste ce qu'il faut pour
+   que le titre et un bouton d'appel entrent dans le premier écran, sans
+   toucher à l'affichage bureau ni à la page de remerciement (qui a sa
+   propre maquette double, exclue ici via :not). */
+@media(max-width:30rem){
+  .gratuit{padding-top:3rem}
+  .gratuit .couverture-guide:not(.duo-couvertures){max-width:7rem}
+  .gratuit .pastille{margin-bottom:1rem}
+  .gratuit .cta-mobile{display:block;text-align:center;margin:0 0 1rem}
+  .gratuit .detail{display:none}
 }
 
 /* L'offre rappelée au-dessus du formulaire lui-même. */

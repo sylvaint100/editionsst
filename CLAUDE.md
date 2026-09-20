@@ -153,6 +153,13 @@ Points à ne pas défaire :
   modification de la règle exige de les mettre à jour**. Mettre `URL_GEO` à `""` éteint la
   fonction (opt-in partout). À faire valider par un juriste : la portée territoriale de la Loi 25
   pour une entreprise établie au Québec, et l'opt-out au Canada hors Québec.
+  **FreeIPAPI**, lu sur ses pages le 20 septembre 2026 : entreprise allemande (Düsseldorf, droit
+  allemand), serveurs du plan gratuit en Europe, usage commercial autorisé (« Commercial use
+  allowed »), 60 requêtes/minute et 10 par 10 s, aucune garantie de disponibilité. **Sa politique ne
+  précise ni le contenu ni la durée de conservation de ses journaux d'API**, et permet le partage
+  avec « prestataires » et « partenaires » : c'est le point faible, l'IP partant avant tout
+  consentement. Si on veut le corriger, la solution nette est un Worker Cloudflare qui renvoie
+  `{country, region}` depuis `request.cf` (mêmes champs que ceux qu'on lit ici).
   `/merci/` en fait partie parce que l'événement `Lead` en dépend : sans cela, il ne
   partirait que pour ceux qui ont cliqué « Accepter ».
 - Le bandeau du site est épuré (`.bandeau.epure` : logo et bascule de langue, hauteur réduite,

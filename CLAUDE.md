@@ -106,6 +106,46 @@ confirmation, livraison du guide. Elle fonctionne. Toute modification du formula
 promesse ou de la séquence EmailOctopus doit être retestée en entier — c'est la seule
 partie du site qu'aucune vérification automatique ne couvre.
 
+### Pages d'atterrissage du guide (destination des publicités)
+
+| Chemin | Langue |
+|--------|--------|
+| `guide-gratuit/index.html` | `fr-CA` |
+| `en/free-guide/index.html` | `en` |
+
+Les publicités Meta pointaient sur `/en/#guide` : le visiteur arrivait sur le catalogue, sous
+une modale de cookies parfois rognée en navigateur intégré, puis devait cliquer « Get the free
+guide » pour atteindre le formulaire. Ces deux pages y répondent : **le formulaire
+EmailOctopus est dans le premier écran mobile** (vérifié à 375 × 667 : champs et bouton
+d'envoi au-dessus du bandeau), sans menu, sans promo, sans catalogue. Elles portent le même
+formulaire, le même `assets/infolettre.js` et le même pied que les autres pages ; elles ne
+portent pas `promo.js`.
+
+Points à ne pas défaire :
+
+- **La section n'a pas la classe `.gratuit`.** Sa règle `.gratuit p` (texte clair) s'appliquerait
+  aussi aux paragraphes du formulaire injecté, illisibles sur la carte claire. `.atterrissage`
+  reprend donc le fond, la pastille et la maquette sans en hériter.
+- **Le formulaire est sur une carte claire** (`.carte-formulaire`, fond `--papier`) : le script
+  du fournisseur ne prévoit que des champs sur fond clair.
+- **Consentement en bandeau, pas en modale.** `<html data-consentement="bandeau">` fait afficher
+  par `assets/consentement.js` un bandeau collé en bas, sans fond assombri, sans verrou de
+  défilement et sans prise de focus. Le corps reçoit une marge égale à sa hauteur
+  (`--h-bandeau-cookies`) pour que le formulaire puisse défiler au-dessus. Le fond légal est
+  celui de la modale : le pixel ne se charge **qu'après « Accepter »**, les deux boutons ont le
+  même poids, et défiler ne vaut pas consentement. **Conséquence assumée :** sans modale, moins
+  de visiteurs cliquent « Accepter », donc moins d'événements parviennent à Meta. L'événement
+  `Lead` de `/merci/` ne remonte que pour ceux qui ont accepté.
+- **`/#guide` et `/en/#guide` redirigent** vers la page d'atterrissage de leur langue (script en
+  tête des deux catalogues), avec la chaîne de requête — UTM, `fbclid` — conservée : les
+  publicités déjà en ligne profitent de la page sans être modifiées. Aucun lien interne
+  n'utilise cette ancre.
+- Le bandeau du site est épuré (`.bandeau.epure` : logo et bascule de langue, hauteur réduite,
+  non collant) : chaque pixel gagné remonte le formulaire.
+
+La modale des autres pages est **plafonnée à la hauteur visible** (`max-height` en `dvh`, défilement
+interne) : sans cela, dans un navigateur intégré à l'écran court, elle était coupée.
+
 ### Infolettre
 
 **Exception à la convention française : l'ancre publique.** La section porte
@@ -116,7 +156,7 @@ jamais visible. Règle générale : les classes suivent le français, les ancres
 suivent la langue de la page.
 
 Un formulaire EmailOctopus figure sur les **six pages de contenu** — les deux catalogues et
-les quatre pages d'ouvrage. Les deux politiques de confidentialité en sont exclues.
+les quatre pages d'ouvrage — ainsi que sur les deux pages d'atterrissage du guide. Les deux politiques de confidentialité en sont exclues.
 
 Le formulaire est **injecté par leur script**, pas présent dans le HTML servi. Ses champs :
 

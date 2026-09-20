@@ -38,6 +38,16 @@
     }
   };
 
+  /* Deux présentations d'un même consentement. La modale (par défaut) bloque
+     la page : c'est ce qui convient à un visiteur qui explore le catalogue.
+     Le bandeau (<html data-consentement="bandeau">) ne bloque rien : une page
+     d'atterrissage publicitaire doit montrer son formulaire tout de suite, et
+     un fond assombri par-dessus faisait fuir le trafic mobile. Le fond légal est
+     le même dans les deux cas — le pixel ne se charge qu'après « Accepter »,
+     poids visuel égal entre les deux boutons, aucun choix implicite (défiler ou
+     continuer à naviguer ne vaut pas consentement). */
+  var MODE_BANDEAU = document.documentElement.getAttribute("data-consentement") === "bandeau";
+
   var elementDeclencheur = null;
 
   function lireChoix(){
@@ -71,7 +81,69 @@
     }
   }
 
+  function fermerBandeau(bandeau, observateur){
+    if (observateur) observateur.disconnect();
+    window.removeEventListener("resize", bandeau._reserver);
+    bandeau.remove();
+    document.body.classList.remove("bandeau-cookies-ouvert");
+    document.body.style.removeProperty("--h-bandeau-cookies");
+    if (elementDeclencheur) {
+      elementDeclencheur.focus();
+      elementDeclencheur = null;
+    }
+  }
+
+  function creerBandeau(t){
+    if (document.querySelector(".bandeau-cookies")) return;
+
+    var urlPolitique = URL_POLITIQUE[lang];
+    var mentionPolitique = urlPolitique
+      ? ' <a href="' + urlPolitique + '">' + t.politique + '</a>'
+      : ' <span class="modale-cookies-politique-attente">' + t.politiqueAttente + '</span>';
+
+    var bandeau = document.createElement("div");
+    bandeau.className = "bandeau-cookies";
+    bandeau.setAttribute("role", "region");
+    bandeau.setAttribute("aria-label", t.etiquette);
+    bandeau.innerHTML =
+      "<p>" + t.texte + mentionPolitique + "</p>" +
+      '<div class="modale-cookies-boutons">' +
+        '<button type="button" class="modale-cookies-bouton refuser">' + t.refuser + "</button>" +
+        '<button type="button" class="modale-cookies-bouton accepter">' + t.accepter + "</button>" +
+      "</div>";
+
+    document.body.appendChild(bandeau);
+
+    /* Le bandeau est collé en bas de l'écran : sans réserve, il recouvrirait
+       le bas de la page, donc le bouton d'envoi du formulaire. On ajoute au
+       corps une marge égale à sa hauteur mesurée pour que tout puisse défiler
+       au-dessus de lui. */
+    function reserver(){
+      document.body.style.setProperty("--h-bandeau-cookies", bandeau.offsetHeight + "px");
+    }
+    bandeau._reserver = reserver;
+    document.body.classList.add("bandeau-cookies-ouvert");
+    reserver();
+    window.addEventListener("resize", reserver);
+    var observateur = null;
+    if (window.ResizeObserver) {
+      observateur = new ResizeObserver(reserver);
+      observateur.observe(bandeau);
+    }
+
+    bandeau.querySelector(".refuser").addEventListener("click", function(){
+      ecrireChoix("refuse");
+      fermerBandeau(bandeau, observateur);
+    });
+    bandeau.querySelector(".accepter").addEventListener("click", function(){
+      ecrireChoix("accepte");
+      fermerBandeau(bandeau, observateur);
+      initialiserPixelMeta();
+    });
+  }
+
   function creerModale(t){
+    if (MODE_BANDEAU) { creerBandeau(t); return; }
     if (document.querySelector(".voile-cookies")) return;
 
     var urlPolitique = URL_POLITIQUE[lang];

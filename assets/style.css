@@ -514,8 +514,14 @@ body.voile-cookies-ouvert{overflow:hidden}
   display:flex;align-items:center;justify-content:center;
   padding:1.5rem;
 }
+/* Plafonnée à la hauteur visible, avec défilement interne : dans un navigateur
+   intégré (Facebook, Instagram) l'écran utile est réduit par les barres de
+   l'appli, et une boîte plus haute que lui était coupée sans recours. `dvh`
+   suit la hauteur réellement visible ; `vh` sert de repli. */
 .modale-cookies{
   width:100%;max-width:28rem;
+  max-height:calc(100vh - 3rem);max-height:calc(100dvh - 3rem);
+  overflow-y:auto;
   background:var(--papier-pur);color:var(--encre);
   border-top:3px solid var(--or);
   box-shadow:0 24px 64px -16px rgba(8,20,42,.5);
@@ -539,6 +545,33 @@ body.voile-cookies-ouvert{overflow:hidden}
 @media(max-width:26rem){
   .modale-cookies{padding:1.5rem}
   .modale-cookies-boutons{flex-direction:column}
+}
+
+/* ---- Bandeau de consentement (pages d'atterrissage) ----
+   Même texte, mêmes boutons de poids égal que la modale, mais collé en bas
+   et sans fond assombri : la page reste lisible et utilisable. Le corps
+   reçoit une marge égale à sa hauteur (--h-bandeau-cookies, posée par
+   assets/consentement.js) pour que le formulaire puisse défiler au-dessus. */
+body.bandeau-cookies-ouvert{padding-bottom:var(--h-bandeau-cookies,0)}
+.bandeau-cookies{
+  position:fixed;left:0;right:0;bottom:0;z-index:1000;
+  background:var(--papier-pur);color:var(--encre);
+  border-top:3px solid var(--or);
+  box-shadow:0 -12px 32px -12px rgba(8,20,42,.35);
+  padding:.6rem 1.5rem;
+  display:flex;align-items:center;justify-content:center;gap:1.5rem;
+}
+.bandeau-cookies p{margin:0;font-size:.875rem;line-height:1.5;max-width:44rem}
+.bandeau-cookies a{color:var(--encre);text-decoration-color:var(--or);text-underline-offset:3px}
+.bandeau-cookies .modale-cookies-boutons{flex:0 0 auto;gap:.5rem}
+.bandeau-cookies .modale-cookies-bouton{flex:0 0 auto;padding:.7rem 1.1rem}
+@media(max-width:40rem){
+  .bandeau-cookies{flex-direction:column;align-items:stretch;gap:.5rem;padding:.6rem .85rem}
+  .bandeau-cookies p{font-size:.75rem;line-height:1.35}
+  /* Les deux boutons restent côte à côte et de même largeur : la colonne
+     de la modale ferait doubler la hauteur du bandeau. */
+  .bandeau-cookies .modale-cookies-boutons{flex-direction:row}
+  .bandeau-cookies .modale-cookies-bouton{flex:1;padding:.55rem .75rem}
 }
 
 /* ---- Page légale (politique de confidentialité) ---- */
@@ -613,3 +646,68 @@ body.voile-cookies-ouvert{overflow:hidden}
 /* Bref surlignage au clic, quand la promo fait défiler jusqu'au bloc
    (transition posée sur .gratuit lui-même, voir plus haut). */
 .gratuit.mis-en-evidence{box-shadow:inset 0 0 0 3px var(--or)}
+
+/* ---- Page d'atterrissage du guide (/guide-gratuit/, /en/free-guide/) ----
+   Destination des publicités : le formulaire doit être visible dès le premier
+   écran, sans défilement, sans menu, sans promo. Même fond d'encre et même
+   maquette que .gratuit, mais la section n'en réutilise PAS la classe : sa
+   règle `.gratuit p` (texte clair) s'appliquerait aussi aux paragraphes du
+   formulaire injecté, illisibles sur la carte claire. Le formulaire est posé
+   sur cette carte parce que le script du fournisseur ne prévoit que des champs
+   sur fond papier ; restyler ses champs pour l'encre casserait à sa prochaine
+   mise à jour. Le bandeau est épuré (logo + bascule de langue), plus bas que
+   celui du site et non collant : chaque pixel gagné remonte le formulaire. */
+.bandeau.epure{--hauteur-logo:3rem;position:static}
+.atterrissage{background:var(--encre);color:var(--papier);padding:2rem 0 3.5rem}
+.atterrissage .enveloppe{
+  display:grid;grid-template-columns:minmax(0,1fr) minmax(0,16rem);
+  gap:4rem;align-items:start;
+}
+.atterrissage h1{
+  color:var(--papier);font-weight:600;font-size:clamp(1.75rem,4vw,2.5rem);
+  line-height:1.15;letter-spacing:-.01em;margin:0 0 .5rem;
+}
+.atterrissage .sous-titre{color:var(--or-clair);font-style:normal;margin:0 0 1rem}
+.atterrissage .accroche{
+  color:var(--papier);font-size:1.1875rem;line-height:1.6;
+  max-width:56ch;margin:0 0 1.25rem;
+}
+.atterrissage .pastille{margin-bottom:1rem}
+.atterrissage .couverture-guide{margin:0;align-self:center}
+.atterrissage .couverture-guide img{width:100%;height:auto;display:block}
+.carte-formulaire{
+  background:var(--papier);color:var(--encre);
+  border-top:3px solid var(--or);padding:1.25rem 1.75rem 1.5rem;
+  max-width:34rem;
+}
+.carte-formulaire .etiquette{color:var(--or);display:block;margin-bottom:1rem}
+.carte-formulaire .infolettre{max-width:none}
+.carte-formulaire .mention{
+  color:var(--gris);font-size:.8125rem;font-style:italic;margin:1rem 0 0;
+}
+.atterrissage-suite .detail{max-width:56ch;margin:0 0 1.15rem}
+.atterrissage-suite .cadeaux{
+  font-family:"IBM Plex Mono",monospace;font-size:.75rem;letter-spacing:.06em;
+  color:var(--encre);border-left:2px solid var(--or);padding-left:1rem;
+  margin:1.75rem 0;line-height:1.9;
+}
+.atterrissage-suite .auteur-ligne{color:var(--gris);font-size:.9375rem;margin:0;max-width:56ch}
+.atterrissage-suite .actions{margin-top:2rem}
+@media(max-width:52rem){
+  .atterrissage .enveloppe{grid-template-columns:1fr;gap:2.5rem}
+  .atterrissage .couverture-guide{max-width:13rem}
+}
+/* Mobile : pastille, titre et accroche se resserrent pour que la carte du
+   formulaire commence dans le premier écran ; la maquette passe sous le
+   formulaire (elle le suit dans le HTML). */
+@media(max-width:30rem){
+  .bandeau.epure{--hauteur-logo:2.25rem}
+  .atterrissage{padding:1rem 0 2rem}
+  .atterrissage .pastille{margin-bottom:.6rem;padding:.4rem .85rem;font-size:.8125rem}
+  .atterrissage h1{font-size:1.625rem;margin-bottom:.4rem}
+  .atterrissage .sous-titre{margin-bottom:.5rem;font-size:.9375rem;line-height:1.45}
+  .atterrissage .accroche{font-size:.9375rem;line-height:1.4;margin-bottom:1rem}
+  .atterrissage .couverture-guide{max-width:9rem}
+  .carte-formulaire{padding:1rem 1rem 1.1rem}
+  .carte-formulaire .etiquette{margin-bottom:.5rem}
+}

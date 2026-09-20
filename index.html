@@ -3,6 +3,13 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<script>
+/* Les publicités du guide gratuit arrivent sur /#guide. Elles vont maintenant
+   à la page d'atterrissage (formulaire dès le premier écran, sans modale) ;
+   la chaîne de requête — UTM, fbclid — est conservée. Aucun lien interne du
+   site n'utilise cette ancre. */
+if (location.hash === "#guide") location.replace("/guide-gratuit/" + location.search);
+</script>
 <title>Éditions ST — Des idées qui prennent vie</title>
 <meta name="description" content="Maison d'édition québécoise. Ouvrages d'affaires, jeunesse et jeux. Éditeur de Sylvain Tremblay.">
 <link rel="canonical" href="https://editionsst.com/">

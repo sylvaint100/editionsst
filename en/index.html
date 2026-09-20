@@ -3,6 +3,12 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<script>
+/* Ads for the free guide land on /en/#guide. They now go to the landing page
+   (form on the first screen, no modal); the query string — UTM, fbclid — is
+   kept. No internal link on the site uses this anchor. */
+if (location.hash === "#guide") location.replace("/en/free-guide/" + location.search);
+</script>
 <title>ST Publishing — Ideas that come to life</title>
 <meta name="description" content="The English-language imprint of Éditions ST, a Québec publishing house. Business, children's and puzzle books. Publisher of Sylvain Tremblay.">
 <link rel="canonical" href="https://editionsst.com/en/">

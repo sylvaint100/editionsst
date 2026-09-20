@@ -26,7 +26,10 @@
       politique:"Politique de confidentialité",
       politiqueAttente:"Politique de confidentialité (à venir)",
       refuser:"Refuser",
-      accepter:"Accepter"
+      accepter:"Accepter",
+      avis:"Nous utilisons des témoins de Meta (Facebook) pour mesurer l'audience et personnaliser la publicité. Vous pouvez vous y opposer en tout temps.",
+      seRetirer:"Refuser",
+      ok:"OK"
     },
     en: {
       etiquette:"Cookie consent",
@@ -34,7 +37,10 @@
       politique:"Privacy policy",
       politiqueAttente:"Privacy policy (coming soon)",
       refuser:"Decline",
-      accepter:"Accept"
+      accepter:"Accept",
+      avis:"We use Meta (Facebook) cookies to measure audience and personalize advertising. You can opt out at any time.",
+      seRetirer:"Opt out",
+      ok:"OK"
     }
   };
 
@@ -47,6 +53,61 @@
      poids visuel égal entre les deux boutons, aucun choix implicite (défiler ou
      continuer à naviguer ne vaut pas consentement). */
   var MODE_BANDEAU = document.documentElement.getAttribute("data-consentement") === "bandeau";
+
+
+  /* Consentement selon la géographie (pages qui portent data-consentement-geo).
+     Le consentement préalable (opt-in) est exigé au Québec (Loi 25) et dans
+     l'Union européenne (RGPD). Aux États-Unis, et au Canada hors Québec, un
+     avis clair avec droit de refus (opt-out) est généralement jugé suffisant :
+     le pixel se charge alors tout de suite et le visiteur peut le refuser.
+     LIRE AVANT DE MODIFIER :
+     - La règle est une liste d'exceptions, jamais une liste d'interdits : tout
+       pays inconnu, toute région inconnue, toute erreur ou tout délai dépassé
+       donne l'opt-in. En cas de doute, on demande.
+     - URL_GEO vide = la fonction est éteinte et toutes les pages exigent
+       l'opt-in, comme avant.
+     - Le pays vient de l'adresse IP, par l'API FreeIPAPI (la même que 55+ YOGA).
+       L'ancienne adresse freeipapi.com/api/json/ redirige (307) vers celle-ci :
+       on appelle directement la nouvelle. Ce n'est pas une preuve de
+       résidence — un réseau mobile peut donner une région fausse — mais un
+       visiteur que l'API signale comme proxy/VPN (isProxy) est traité comme
+       inconnu, donc opt-in. On ne garde de la réponse que pays, région et
+       proxy : ni IP, ni coordonnées. */
+  var URL_GEO = "https://free.freeipapi.com/api/v1/json/";
+  var CLE_GEO = "editionsst-geo";
+  var CLE_AVIS_VU = "editionsst-avis-vu";
+  var DELAI_GEO_MS = 1500;
+  var MODE_GEO = URL_GEO !== "" && document.documentElement.hasAttribute("data-consentement-geo");
+
+  function optinRequis(geo){
+    if (!geo || !geo.country || geo.proxy) return true;
+    if (geo.country === "US") return false;
+    if (geo.country === "CA") return !geo.region || geo.region === "QC";
+    return true;
+  }
+
+  function lireGeo(rappel){
+    try {
+      var memo = window.sessionStorage.getItem(CLE_GEO);
+      if (memo) { rappel(JSON.parse(memo)); return; }
+    } catch(e){}
+    if (!window.fetch) { rappel(null); return; }
+
+    var termine = false;
+    function fin(geo){
+      if (termine) return;
+      termine = true;
+      clearTimeout(minuteur);
+      if (geo) { try { window.sessionStorage.setItem(CLE_GEO, JSON.stringify(geo)); } catch(e){} }
+      rappel(geo);
+    }
+    var minuteur = setTimeout(function(){ fin(null); }, DELAI_GEO_MS);
+    window.fetch(URL_GEO, { cache:"no-store", credentials:"omit" })
+      .then(function(r){ return r.json(); })
+      .then(function(j){
+        fin({ country: j.countryCode || null, region: j.regionCode || null, proxy: !!j.isProxy });
+      }, function(){ fin(null); });
+  }
 
   var elementDeclencheur = null;
 
@@ -93,24 +154,18 @@
     }
   }
 
-  function creerBandeau(t){
+  /* Bandeau collé en bas, sans fond assombri. Sert à deux choses : demander le
+     consentement (opt-in) et, dans les régions où il n'est pas exigé, informer
+     avec droit de refus (opt-out). `boutons` : [{classe, libelle, action}]. */
+  function afficherBandeau(etiquette, contenuHtml, boutons){
     if (document.querySelector(".bandeau-cookies")) return;
-
-    var urlPolitique = URL_POLITIQUE[lang];
-    var mentionPolitique = urlPolitique
-      ? ' <a href="' + urlPolitique + '">' + t.politique + '</a>'
-      : ' <span class="modale-cookies-politique-attente">' + t.politiqueAttente + '</span>';
 
     var bandeau = document.createElement("div");
     bandeau.className = "bandeau-cookies";
     bandeau.setAttribute("role", "region");
-    bandeau.setAttribute("aria-label", t.etiquette);
-    bandeau.innerHTML =
-      "<p>" + t.texte + mentionPolitique + "</p>" +
-      '<div class="modale-cookies-boutons">' +
-        '<button type="button" class="modale-cookies-bouton refuser">' + t.refuser + "</button>" +
-        '<button type="button" class="modale-cookies-bouton accepter">' + t.accepter + "</button>" +
-      "</div>";
+    bandeau.setAttribute("aria-label", etiquette);
+    bandeau.innerHTML = "<p>" + contenuHtml + '</p><div class="modale-cookies-boutons"></div>';
+    var zoneBoutons = bandeau.querySelector(".modale-cookies-boutons");
 
     document.body.appendChild(bandeau);
 
@@ -131,15 +186,47 @@
       observateur.observe(bandeau);
     }
 
-    bandeau.querySelector(".refuser").addEventListener("click", function(){
-      ecrireChoix("refuse");
-      fermerBandeau(bandeau, observateur);
+    boutons.forEach(function(b){
+      var el = document.createElement("button");
+      el.type = "button";
+      el.className = "modale-cookies-bouton " + b.classe;
+      el.textContent = b.libelle;
+      el.addEventListener("click", function(){
+        fermerBandeau(bandeau, observateur);
+        b.action();
+      });
+      zoneBoutons.appendChild(el);
     });
-    bandeau.querySelector(".accepter").addEventListener("click", function(){
-      ecrireChoix("accepte");
-      fermerBandeau(bandeau, observateur);
-      initialiserPixelMeta();
-    });
+  }
+
+  function mentionPolitique(t){
+    var urlPolitique = URL_POLITIQUE[lang];
+    return urlPolitique
+      ? ' <a href="' + urlPolitique + '">' + t.politique + '</a>'
+      : ' <span class="modale-cookies-politique-attente">' + t.politiqueAttente + '</span>';
+  }
+
+  function creerBandeau(t){
+    afficherBandeau(t.etiquette, t.texte + mentionPolitique(t), [
+      { classe:"refuser", libelle:t.refuser, action:function(){ ecrireChoix("refuse"); } },
+      { classe:"accepter", libelle:t.accepter, action:function(){ ecrireChoix("accepte"); initialiserPixelMeta(); } }
+    ]);
+  }
+
+  /* Régions sans opt-in : le pixel est déjà chargé quand l'avis s'affiche. Le
+     refus l'arrête (fbq consent revoke) et se mémorise ; « OK » ne mémorise
+     rien de durable, seulement de ne plus montrer l'avis pendant la session. */
+  function creerAvis(t){
+    try { if (window.sessionStorage.getItem(CLE_AVIS_VU)) return; } catch(e){}
+    afficherBandeau(t.etiquette, t.avis + mentionPolitique(t), [
+      { classe:"refuser", libelle:t.seRetirer, action:function(){
+          ecrireChoix("refuse");
+          if (window.fbq) { window.fbq("consent", "revoke"); }
+        } },
+      { classe:"accepter", libelle:t.ok, action:function(){
+          try { window.sessionStorage.setItem(CLE_AVIS_VU, "1"); } catch(e){}
+        } }
+    ]);
   }
 
   function creerModale(t){
@@ -188,7 +275,18 @@
     if (choix === "accepte") {
       initialiserPixelMeta();
     } else if (choix !== "refuse") {
-      creerModale(textes[lang]);
+      if (MODE_GEO) {
+        lireGeo(function(geo){
+          if (optinRequis(geo)) {
+            creerModale(textes[lang]);
+          } else {
+            initialiserPixelMeta();
+            creerAvis(textes[lang]);
+          }
+        });
+      } else {
+        creerModale(textes[lang]);
+      }
     }
 
     var lienPreferences = document.querySelector("[data-cookies-preferences]");

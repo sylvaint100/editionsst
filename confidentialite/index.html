@@ -69,9 +69,12 @@
       <span class="trait"></span>
     </div>
     <h3>Pixel Meta (Facebook)</h3>
-    <p>Utilisé seulement si vous cliquez « Accepter » dans le bandeau de consentement, pour mesurer l'audience du site et présenter des publicités ciblées sur les plateformes Meta. Tant que vous n'avez pas donné votre accord, aucune donnée n'est transmise à Meta. <strong>Base légale : votre consentement.</strong></p>
+    <p>Utilisé pour mesurer l'audience du site et présenter des publicités ciblées sur les plateformes Meta. En règle générale, il n'est chargé que si vous cliquez « Accepter » dans le bandeau de consentement : tant que vous n'avez pas donné votre accord, aucune donnée n'est transmise à Meta. <strong>Base légale : votre consentement.</strong></p>
+    <p><strong>Exception, limitée à deux pages :</strong> la page anglaise du guide gratuit (<em>editionsst.com/en/free-guide/</em>) et la page de confirmation d'inscription (<em>/merci/</em>). Sur ces deux pages seulement, si votre adresse IP indique les États-Unis ou le Canada hors Québec, le pixel se charge dès votre arrivée, sans clic préalable. Un avis s'affiche alors et vous pouvez refuser en tout temps (bouton « Refuser » de l'avis, ou lien « Cookies » au bas de la page) : le refus arrête le pixel et est mémorisé. Partout ailleurs — Québec, Union européenne et autres pays — et chaque fois que votre position ne peut pas être établie de façon sûre (réseau privé virtuel, erreur du service, délai dépassé), le pixel n'est chargé qu'après votre accord. <strong>Base légale : votre consentement (Québec, Union européenne et autres pays) ; avis avec droit de refus (États-Unis et Canada hors Québec).</strong></p>
     <h3>Votre choix de consentement</h3>
     <p>Que vous acceptiez ou refusiez, ce choix est enregistré uniquement dans le stockage local de votre navigateur — jamais sur un serveur — pour éviter de vous le redemander à chaque visite. Cette information technique est strictement nécessaire au fonctionnement du bandeau et n'est pas elle-même soumise à consentement.</p>
+    <h3>Localisation par adresse IP (FreeIPAPI)</h3>
+    <p>Sur ces deux pages, votre navigateur interroge le service FreeIPAPI pour déduire votre pays et votre région à partir de votre adresse IP, ce qui lui transmet cette adresse. Nous ne gardons de la réponse que le pays, la région et l'indication d'un réseau privé virtuel, dans le stockage de session de votre navigateur, jusqu'à la fermeture de l'onglet — ni l'adresse IP, ni les coordonnées. Cette déduction sert uniquement à appliquer la règle de consentement qui correspond à votre région. <strong>Base légale : intérêt légitime</strong> lié au respect de cette règle. Elle est approximative : elle ne prouve pas votre lieu de résidence.</p>
     <h3>Mesure d'audience sans témoin (Cloudflare Web Analytics)</h3>
     <p>Cloudflare Web Analytics mesure la fréquentation du site sans témoin ni identifiant qui vous suit d'une visite à l'autre ou d'un site à l'autre. Parce qu'elle ne permet pas de vous identifier, elle se charge sur toutes les pages sans passer par le bandeau de consentement — contrairement au pixel Meta. <strong>Base légale : intérêt légitime</strong> lié à la mesure d'audience.</p>
     <h3>Polices de caractères (Google Fonts)</h3>
@@ -96,8 +99,9 @@
       <span class="trait"></span>
     </div>
     <ul>
-      <li><strong>Meta Platforms, Inc.</strong> — pixel de mesure et de publicité, uniquement après votre consentement.</li>
+      <li><strong>Meta Platforms, Inc.</strong> — pixel de mesure et de publicité, après votre consentement — sauf l'exception décrite plus haut (États-Unis et Canada hors Québec, sur deux pages).</li>
       <li><strong>Cloudflare, Inc.</strong> — mesure d'audience sans témoin ni identifiant persistant.</li>
+      <li><strong>FreeIPAPI</strong> — déduction du pays et de la région à partir de l'adresse IP, sur deux pages seulement ; service tiers dont les serveurs peuvent se trouver hors du Québec.</li>
       <li><strong>Google LLC</strong> — livraison des polices de caractères, et service reCAPTCHA du formulaire d'infolettre.</li>
       <li><strong>HeyGen</strong> — hébergement de la vidéo intégrée, pages de <em>L'écart, c'est vous.</em> et de <em>The Gap Is You.</em> (française et anglaise).</li>
       <li><strong>EmailOctopus Ltd</strong> — hébergement de la liste d'infolettre et acheminement des envois.</li>
@@ -116,6 +120,7 @@
     <ul>
       <li><strong>Pixel Meta</strong> — selon les délais propres à Meta, hors du contrôle direct d'Éditions ST.</li>
       <li><strong>Choix de consentement</strong> — conservé dans votre navigateur jusqu'à ce que vous l'effaciez ou changiez votre choix.</li>
+      <li><strong>Pays et région déduits de votre adresse IP</strong> — conservés dans le stockage de session de votre navigateur, jusqu'à la fermeture de l'onglet.</li>
       <li><strong>Inscription à l'infolettre</strong> — conservée jusqu'à votre désabonnement, ou jusqu'à ce que vous en demandiez la suppression.</li>
       <li><strong>Courriels reçus</strong> — conservés le temps nécessaire pour traiter votre demande.</li>
     </ul>

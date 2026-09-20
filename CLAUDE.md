@@ -140,6 +140,21 @@ Points à ne pas défaire :
   tête des deux catalogues), avec la chaîne de requête — UTM, `fbclid` — conservée : les
   publicités déjà en ligne profitent de la page sans être modifiées. Aucun lien interne
   n'utilise cette ancre.
+- **Consentement selon la géographie** (`data-consentement-geo` sur `<html>`), **seulement** sur
+  `en/free-guide/` et `merci/` — la page française et tout le reste du site exigent l'opt-in
+  partout. Le pays, la région et l'indicateur proxy viennent de **FreeIPAPI**
+  (`https://free.freeipapi.com/api/v1/json/` ; l'ancienne `freeipapi.com/api/json/` redirige en
+  307 — même service que 55+ YOGA), appelé par le navigateur. **États-Unis** et **Canada hors
+  Québec** : le pixel se charge tout de suite, un avis propose « Opt out » (qui arrête le pixel par
+  `fbq('consent','revoke')` et mémorise le refus). **Tout le reste** — Québec, UE, pays ou région
+  inconnus, proxy/VPN, panne, délai de 1,5 s dépassé — donne l'opt-in : c'est une liste
+  d'exceptions, jamais d'interdits. On ne garde que pays/région/proxy en `sessionStorage`,
+  jamais l'IP. Les deux politiques de confidentialité décrivent cette règle ; **toute
+  modification de la règle exige de les mettre à jour**. Mettre `URL_GEO` à `""` éteint la
+  fonction (opt-in partout). À faire valider par un juriste : la portée territoriale de la Loi 25
+  pour une entreprise établie au Québec, et l'opt-out au Canada hors Québec.
+  `/merci/` en fait partie parce que l'événement `Lead` en dépend : sans cela, il ne
+  partirait que pour ceux qui ont cliqué « Accepter ».
 - Le bandeau du site est épuré (`.bandeau.epure` : logo et bascule de langue, hauteur réduite,
   non collant) : chaque pixel gagné remonte le formulaire.
 

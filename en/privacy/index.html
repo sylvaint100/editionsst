@@ -71,9 +71,12 @@
       <span class="trait"></span>
     </div>
     <h3>Meta (Facebook) pixel</h3>
-    <p>Used only if you click "Accept" in the consent banner, to measure the site's audience and show targeted ads on Meta's platforms. Until you agree, no data is shared with Meta. <strong>Legal basis: your consent.</strong></p>
+    <p>Used to measure the site's audience and show targeted ads on Meta's platforms. As a rule, it loads only if you click "Accept" in the consent banner: until you agree, no data is shared with Meta. <strong>Legal basis: your consent.</strong></p>
+    <p><strong>Exception, limited to two pages:</strong> the English free-guide page (<em>editionsst.com/en/free-guide/</em>) and the sign-up confirmation page (<em>/merci/</em>). On those two pages only, if your IP address points to the United States or to Canada outside Québec, the pixel loads as soon as you arrive, without a prior click. A notice then appears and you can opt out at any time (the notice's "Opt out" button, or the "Cookies" link at the bottom of the page): opting out stops the pixel and is remembered. Everywhere else — Québec, the European Union and other countries — and whenever your location cannot be established reliably (virtual private network, service error, timeout), the pixel loads only after you agree. <strong>Legal basis: your consent (Québec, European Union and other countries); notice with a right to opt out (United States and Canada outside Québec).</strong></p>
     <h3>Your consent choice</h3>
     <p>Whether you accept or decline, that choice is stored only in your browser's local storage — never on a server — so you aren't asked again on every visit. This technical information is strictly necessary for the banner to work and is not itself subject to consent.</p>
+    <h3>Location from your IP address (FreeIPAPI)</h3>
+    <p>On those two pages, your browser queries the FreeIPAPI service to infer your country and region from your IP address, which sends it that address. We keep only the country, the region and a flag for a virtual private network from the response, in your browser's session storage until you close the tab — not the IP address, not the coordinates. This inference is used only to apply the consent rule that matches your region. <strong>Legal basis: legitimate interest</strong> in complying with that rule. It is approximate: it does not prove where you live.</p>
     <h3>Cookie-free audience measurement (Cloudflare Web Analytics)</h3>
     <p>Cloudflare Web Analytics measures site traffic without a cookie or any identifier that follows you between visits or across sites. Because it cannot identify you, it loads on every page without going through the consent banner — unlike the Meta pixel. <strong>Legal basis: legitimate interest</strong> in audience measurement.</p>
     <h3>Fonts (Google Fonts)</h3>
@@ -98,8 +101,9 @@
       <span class="trait"></span>
     </div>
     <ul>
-      <li><strong>Meta Platforms, Inc.</strong> — measurement and advertising pixel, only after your consent.</li>
+      <li><strong>Meta Platforms, Inc.</strong> — measurement and advertising pixel, after your consent — except the exception described above (United States and Canada outside Québec, on two pages).</li>
       <li><strong>Cloudflare, Inc.</strong> — cookie-free audience measurement, no persistent identifier.</li>
+      <li><strong>FreeIPAPI</strong> — inferring country and region from the IP address, on two pages only; a third-party service whose servers may be outside Québec.</li>
       <li><strong>Google LLC</strong> — font delivery, and the reCAPTCHA service on the newsletter form.</li>
       <li><strong>HeyGen</strong> — hosting of the embedded video, on the pages for <em>L'écart, c'est vous.</em> and <em>The Gap Is You.</em> (French and English).</li>
       <li><strong>EmailOctopus Ltd</strong> — newsletter list hosting and delivery.</li>
@@ -118,6 +122,7 @@
     <ul>
       <li><strong>Meta pixel</strong> — under Meta's own retention periods, outside Éditions ST's direct control.</li>
       <li><strong>Consent choice</strong> — kept in your browser until you clear it or change your choice.</li>
+      <li><strong>Country and region inferred from your IP address</strong> — kept in your browser's session storage until you close the tab.</li>
       <li><strong>Newsletter sign-up</strong> — kept until you unsubscribe, or until you ask for it to be deleted.</li>
       <li><strong>Emails received</strong> — kept as long as needed to handle your request.</li>
     </ul>

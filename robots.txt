@@ -1,5 +1,6 @@
 User-agent: *
 Allow: /
 Disallow: /merci/
+Disallow: /en/nobody-decided-that/
 
 Sitemap: https://editionsst.com/sitemap.xml

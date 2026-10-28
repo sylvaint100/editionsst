@@ -1,0 +1,29 @@
+# Éditions ST
+
+> Maison d'édition québécoise, fondée par Sylvain Tremblay, bilingue français-anglais sous les marques Éditions ST et ST Publishing.
+
+Éditions ST publie ses propres ouvrages ainsi que des titres illustrés et des recueils de jeux. Les domaines couverts sont les affaires, la jeunesse et les jeux. ST Publishing est l'empreinte anglophone de la maison : mêmes ouvrages, même éditeur, même préfixe ISBN, traduits en anglais pour un lectorat nord-américain. Chaque titre porte un ISBN attribué par Bibliothèque et Archives nationales du Québec et fait l'objet d'un dépôt légal.
+
+## Pages
+
+- [Éditions ST](https://editionsst.com/): Page d'accueil française — catalogue, collections et présentation de la maison.
+- [ST Publishing](https://editionsst.com/en/): Page d'accueil anglaise — catalogue, collections et présentation de l'empreinte anglophone.
+- [L'écart, c'est vous.](https://editionsst.com/lecart-cest-vous/): Fiche en français du deuxième ouvrage — décider, construire, vérifier, durer avec l'IA.
+- [The Gap Is You.](https://editionsst.com/en/the-gap-is-you/): Fiche en anglais, édition anglaise de *L'écart, c'est vous.*
+- [L'IA en Action](https://editionsst.com/lia-en-action/): Fiche en français du premier ouvrage — parcours pratique pour dirigeants de PME.
+- [AI in Action](https://editionsst.com/en/ai-in-action/): Fiche en anglais, édition anglaise de *L'IA en Action*.
+- [Politique de confidentialité](https://editionsst.com/confidentialite/): Politique de confidentialité en français, rédigée pour le Québec (Loi 25).
+- [Privacy Policy](https://editionsst.com/en/privacy/): Politique de confidentialité en anglais (Loi 25 du Québec et LPRPDE du Canada).
+
+## Catalogue
+
+- **L'écart, c'est vous.** (fr-CA) — publié le 2026-08-30. ISBN broché 978-2-925678-00-7, relié 978-2-925678-06-9, ePub 978-2-925678-01-4.
+- **The Gap Is You.** (en) — publié le 2026-09-06, édition anglaise de *L'écart, c'est vous.* ISBN broché 978-2-925678-12-0, relié 978-2-925678-13-7, ePub 978-2-925678-14-4.
+- **L'IA en Action** (fr-CA) — publié le 2025-08-05. ISBN à compléter sur le site (titre encore sous numéro Amazon provisoire).
+- **AI in Action** (en) — publié le 2025-08-06, édition anglaise de *L'IA en Action*. ISBN à compléter sur le site (titre encore sous numéro Amazon provisoire).
+- **Les mains dans l'IA** (fr-CA) — à paraître. Compagnon technique de *L'écart, c'est vous.*, mentionné sur sa fiche ; aucune page ni ISBN publiés pour l'instant.
+
+## Contact
+
+- Courriel : info@editionsst.com
+- Adresse postale : CP 60065, CSP Faubourg, Boisbriand (Québec) J7H 0G7, Canada

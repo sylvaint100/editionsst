@@ -4,6 +4,8 @@
 
 Éditions ST publie ses propres ouvrages ainsi que des titres illustrés et des recueils de jeux. Les domaines couverts sont les affaires, la jeunesse et les jeux. ST Publishing est l'empreinte anglophone de la maison : mêmes ouvrages, même éditeur, même préfixe ISBN, traduits en anglais pour un lectorat nord-américain. Chaque titre porte un ISBN attribué par Bibliothèque et Archives nationales du Québec et fait l'objet d'un dépôt légal.
 
+Le plan complet des pages, avec leurs équivalents dans l'autre langue, figure dans [sitemap.xml](https://editionsst.com/sitemap.xml). L'exploration du site est autorisée sans restriction par [robots.txt](https://editionsst.com/robots.txt), à l'exception de la page de confirmation d'inscription.
+
 ## Pages
 
 - [Éditions ST](https://editionsst.com/): Page d'accueil française — catalogue, collections et présentation de la maison.

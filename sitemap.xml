@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url>
+    <loc>https://editionsst.com/</loc>
+    <lastmod>2026-09-20</lastmod>
+    <xhtml:link rel="alternate" hreflang="fr-CA" href="https://editionsst.com/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://editionsst.com/en/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://editionsst.com/"/>
+  </url>
+  <url>
+    <loc>https://editionsst.com/en/</loc>
+    <lastmod>2026-09-20</lastmod>
+    <xhtml:link rel="alternate" hreflang="fr-CA" href="https://editionsst.com/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://editionsst.com/en/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://editionsst.com/"/>
+  </url>
+  <url>
+    <loc>https://editionsst.com/lecart-cest-vous/</loc>
+    <lastmod>2026-09-14</lastmod>
+    <xhtml:link rel="alternate" hreflang="fr-CA" href="https://editionsst.com/lecart-cest-vous/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://editionsst.com/en/the-gap-is-you/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://editionsst.com/lecart-cest-vous/"/>
+  </url>
+  <url>
+    <loc>https://editionsst.com/en/the-gap-is-you/</loc>
+    <lastmod>2026-09-14</lastmod>
+    <xhtml:link rel="alternate" hreflang="fr-CA" href="https://editionsst.com/lecart-cest-vous/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://editionsst.com/en/the-gap-is-you/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://editionsst.com/lecart-cest-vous/"/>
+  </url>
+  <url>
+    <loc>https://editionsst.com/lia-en-action/</loc>
+    <lastmod>2026-09-08</lastmod>
+    <xhtml:link rel="alternate" hreflang="fr-CA" href="https://editionsst.com/lia-en-action/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://editionsst.com/en/ai-in-action/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://editionsst.com/lia-en-action/"/>
+  </url>
+  <url>
+    <loc>https://editionsst.com/en/ai-in-action/</loc>
+    <lastmod>2026-09-08</lastmod>
+    <xhtml:link rel="alternate" hreflang="fr-CA" href="https://editionsst.com/lia-en-action/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://editionsst.com/en/ai-in-action/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://editionsst.com/lia-en-action/"/>
+  </url>
+  <url>
+    <loc>https://editionsst.com/confidentialite/</loc>
+    <lastmod>2026-09-20</lastmod>
+    <xhtml:link rel="alternate" hreflang="fr-CA" href="https://editionsst.com/confidentialite/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://editionsst.com/en/privacy/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://editionsst.com/confidentialite/"/>
+  </url>
+  <url>
+    <loc>https://editionsst.com/en/privacy/</loc>
+    <lastmod>2026-09-20</lastmod>
+    <xhtml:link rel="alternate" hreflang="fr-CA" href="https://editionsst.com/confidentialite/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://editionsst.com/en/privacy/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://editionsst.com/confidentialite/"/>
+  </url>
+</urlset>

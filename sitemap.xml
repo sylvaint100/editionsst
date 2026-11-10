@@ -17,8 +17,16 @@
   </url>
   <url>
     <loc>https://editionsst.com/personne-na-decide-ca/</loc>
-    <lastmod>2026-10-28</lastmod>
+    <lastmod>2026-11-09</lastmod>
     <xhtml:link rel="alternate" hreflang="fr-CA" href="https://editionsst.com/personne-na-decide-ca/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://editionsst.com/en/nobody-decided-that/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://editionsst.com/personne-na-decide-ca/"/>
+  </url>
+  <url>
+    <loc>https://editionsst.com/en/nobody-decided-that/</loc>
+    <lastmod>2026-11-09</lastmod>
+    <xhtml:link rel="alternate" hreflang="fr-CA" href="https://editionsst.com/personne-na-decide-ca/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://editionsst.com/en/nobody-decided-that/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://editionsst.com/personne-na-decide-ca/"/>
   </url>
   <url>
